@@ -12,12 +12,12 @@
 <!-- Menu -->
 <table width="1200" height="30" align="center">
   <tr>
-    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../index.htm">Présentation</a></td>
-    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../corpus/comparable/mythologie.htm">Mythologie kiranti</a></td>
-    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="index.htm">Dictionnaires</a></td>
-    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../corpus/comparable/index.htm">Corpus comparables</a></td>
-    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../links.htm">Liens</a></td>
-    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../contact.htm">Contact</a></td>
+    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../index.htm">Presentation</a></td>
+    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../corpus/comparable/index.htm">Comparable corpus</a></td>
+    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="index.htm">Dictionaries</a></td>
+    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../links.htm">Read more</a></td>
+    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu">TBD</td>
+    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../contact.htm">Contact information</a></td>
   </tr>
 </table>
 <!-- Sub-menu -->
@@ -63,11 +63,11 @@
 <table width="1200" height="700" align="center" class="fond">
   <tr> 
     <!-- Left menu -->
-    <td width="100" height="700" align="left" valign="top"><p class="menu"><a href="index.htm">Présentation</a></p>
+    <td width="100" height="700" align="left" valign="top"><p class="menu"><a href="index.htm">Presentation</a></p>
       <p class="menu"><a href="SelectDictionary.php?dict=japhug">Japhug</a></p>
       <p class="menu"><a href="SelectDictionary.php?dict=khaling">Khaling</a></p>
       <p class="menu"><a href="SelectDictionary.php?dict=na">Na</a></p>
-      <p class="menu"><a href="search.php">Recherche</a></p></td>
+      <p class="menu"><a href="search.php">Search</a></p></td>
     <!-- Contents -->
     <td width="1100" align="justify" valign="top" bgcolor="#FFFFFF"><?php
             	$dict = isset($_GET["dict"]) ? $_GET["dict"] : "*";
@@ -111,7 +111,7 @@
 <!-- Footer -->
 <table width="1200" height="30" align="center">
   <tr>
-    <td width="1200" height="30" align="center"><b>Les corpus et dictionnaires ont &eacute;t&eacute; compil&eacute;s avec l'aide financi&egrave;re de l'ANR.</b></td>
+    <td width="1200" height="30" align="center"><b>Corpus and dictionaries have been compiled thanks to the ANR financial support.</b></td>
   </tr>
   <tr>
     <td width="1200" align="center"><img src="../images/logos/ANR.gif"></td>
