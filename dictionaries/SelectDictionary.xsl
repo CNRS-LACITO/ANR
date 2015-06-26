@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:param name="dict" select="''"/>
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>
+          <!-- Tab title -->
+        </title>
+        <link href="../styles.css" rel="stylesheet" type="text/css"/>
+      </head>
+      <body>
+        <xsl:text>Please select dictionary languages: </xsl:text>
+        <xsl:if test="$dict='japhug'">
+          <form id="form" name="form" action="ViewDictionary.php">
+            <p>
+              <input type="checkbox" name="lang1" id="lang1" value="fra" checked="checked"/>
+              <label for="lang1"> French</label>
+            </p>
+            <p>
+              <input type="checkbox" name="langn" id="langn" value="cmn"/>
+              <label for="langn"> Chinese</label>
+            </p>
+            <p>
+              <input type="submit" name="dict" id="dict" value="japhug"/>
+            </p>
+          </form>
+        </xsl:if>
+        <xsl:if test="$dict='khaling'">
+          <form id="form" name="form" action="ViewDictionary.php">
+            <p>
+              <input type="checkbox" name="lang1" id="lang1" value="eng" checked="checked"/>
+              <label for="lang1"> English</label>
+            </p>
+            <p>
+              <input type="checkbox" name="langn" id="langn" value="cmn"/>
+              <label for="langn"> Nepali</label>
+            </p>
+            <p>
+              <input type="submit" name="dict" id="dict" value="khaling"/>
+            </p>
+          </form>
+        </xsl:if>
+        <xsl:if test="$dict='na'">
+          <form id="form" name="form" action="ViewDictionary.php">
+            <p>
+              <input type="checkbox" name="lang1" id="lang1" value="eng" checked="checked"/>
+              <label for="lang1"> English</label>
+            </p>
+            <p>
+              <input type="checkbox" name="lang2" id="lang2" value="fra"/>
+              <label for="lang2"> French</label>
+            </p>
+            <p>
+              <input type="checkbox" name="langn" id="langn" value="cmn"/>
+              <label for="langn"> Chinese</label>
+            </p>
+            <p>
+              <input type="submit" name="dict" id="dict" value="na"/>
+            </p>
+          </form>
+        </xsl:if>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
