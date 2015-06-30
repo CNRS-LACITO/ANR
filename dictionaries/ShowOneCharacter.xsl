@@ -180,6 +180,7 @@
               <xsl:value-of
                 select="./Sense/SubjectField/feat[@att='language' and @val=$lang1]//ancestor::SubjectField/feat[@att='semanticDomain']//@val"
               />
+              <xsl:text>. </xsl:text>
             </i>
           </xsl:if>
           <xsl:if
@@ -188,15 +189,16 @@
               <xsl:value-of
                 select="./Sense/SubjectField/feat[@att='language' and @val=$lang2]//ancestor::SubjectField/feat[@att='semanticDomain']//@val"
               />
+              <xsl:text>. </xsl:text>
             </i>
           </xsl:if>
           <!-- Cross references -->
           <xsl:for-each select="./RelatedForm">
             <xsl:if test="./feat[@att='semanticRelation' and @val='simple link']">
-              <xsl:if test="$lang1='fra' or $lang2='fra'">
+              <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
                 <xsl:text>Voir : </xsl:text>
               </xsl:if>
-              <xsl:if test="$lang1='eng'">
+              <xsl:if test="$lang1='eng' or $lang2='eng'">
                 <xsl:text>See: </xsl:text>
               </xsl:if>
               <!-- Insert link -->
@@ -221,6 +223,10 @@
                       <xsl:value-of select="$dict"/>
                       <xsl:text>&amp;lang1=</xsl:text>
                       <xsl:value-of select="$lang1"/>
+                      <xsl:text>&amp;lang2=</xsl:text>
+                      <xsl:value-of select="$lang2"/>
+                      <xsl:text>&amp;langn=</xsl:text>
+                      <xsl:value-of select="$langn"/>
                       <xsl:text>&amp;char=</xsl:text>
                       <xsl:value-of select="substring($targets, 1, 1)"/>
                       <xsl:text>#</xsl:text>
@@ -313,7 +319,7 @@
     <dd class="national">
       <xsl:call-template name="get">
         <xsl:with-param name="value"
-          select="./TextRepresentation/feat[@att='language' and @val='cmn']//ancestor::TextRepresentation/feat[@att='writtenForm']//@val"
+          select="./TextRepresentation/feat[@att='language' and @val=$langn]//ancestor::TextRepresentation/feat[@att='writtenForm']//@val"
         />
       </xsl:call-template>
     </dd>

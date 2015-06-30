@@ -64,7 +64,7 @@ a:active {
                 		$xp->setParameter('', 'dict', $dict);
                 		$xp->setParameter('', 'lang1', $lang1);
 										$xp->setParameter('', 'lang2', $lang2);
-										$xp->setParameter('', 'lang3', $lang3);
+										$xp->setParameter('', 'langn', $langn);
 
                 		// import the XSL styelsheet into the XSLT process
                 		$xp->importStylesheet($xsl);

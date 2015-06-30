@@ -9,27 +9,27 @@
       <!-- Display only meaningfull characters: rank value must be a float between 1 and 42 -->
       <xsl:call-template name="loop">
         <xsl:with-param name="rank" select="'1'"/>
-        
+
         <xsl:with-param name="max_rank" select="'42'"/>
-        
+
       </xsl:call-template>
     </xsl:if>
     <xsl:if test="$dict='khaling'">
       <!-- Display only meaningfull characters: rank value must be a float between 1 and 31 -->
       <xsl:call-template name="loop">
         <xsl:with-param name="rank" select="'1'"/>
-        
+
         <xsl:with-param name="max_rank" select="'31'"/>
-        
+
       </xsl:call-template>
     </xsl:if>
     <xsl:if test="$dict='na'">
       <!-- Display only meaningfull characters: rank value must be a float between 1 and 59 -->
       <xsl:call-template name="loop">
         <xsl:with-param name="rank" select="'1'"/>
-        
+
         <xsl:with-param name="max_rank" select="'59'"/>
-        
+
       </xsl:call-template>
     </xsl:if>
   </xsl:template>
@@ -46,7 +46,10 @@
         <xsl:attribute name="bgcolor">#FFFFFF</xsl:attribute>
         <xsl:for-each select="//rules/rule[floor(@rank) = number($rank)]">
           <xsl:element name="a">
-            <xsl:attribute name="href">ViewOneCharacter.php?dict=<xsl:value-of select="$dict"/>&amp;lang1=<xsl:value-of select="$lang1"/>&amp;char=<xsl:value-of select="./@str"/></xsl:attribute>
+            <xsl:attribute name="href">ViewOneCharacter.php?dict=<xsl:value-of select="$dict"
+                />&amp;lang1=<xsl:value-of select="$lang1"/>&amp;lang2=<xsl:value-of select="$lang2"
+                />&amp;langn=<xsl:value-of select="$langn"/>&amp;char=<xsl:value-of select="./@str"
+              /></xsl:attribute>
             <xsl:value-of select="./@str"/>
           </xsl:element>
         </xsl:for-each>
@@ -55,7 +58,7 @@
     <xsl:if test="$rank &lt; $max_rank">
       <xsl:call-template name="loop">
         <xsl:with-param name="rank" select="number($rank) + 1"/>
-                <xsl:with-param name="max_rank" select="$max_rank"/>
+        <xsl:with-param name="max_rank" select="$max_rank"/>
       </xsl:call-template>
     </xsl:if>
   </xsl:template>
