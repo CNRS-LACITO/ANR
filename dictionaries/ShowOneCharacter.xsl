@@ -257,9 +257,9 @@
         <xsl:value-of select="$file_format"/>
       </xsl:attribute>
       <xsl:attribute name="title">Listen</xsl:attribute>
-      <xsl:attribute name="target">_blank</xsl:attribute>
+      <xsl:attribute name="target">popup</xsl:attribute>
       <xsl:attribute name="onClick"
-        >window.open(this.href,'popupLink','width=350,height=35,scrollbars=yes,resizable=yes',1).focus();return
+        >window.open(this.href,'popup','width=350,height=35,scrollbars=yes,resizable=yes',1).focus();return
         false</xsl:attribute>
       <img height="14px" width="14px" src="../images/icones/sound1_bleu.jpg"/>
     </xsl:element>
