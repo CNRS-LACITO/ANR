@@ -209,7 +209,7 @@
                   <xsl:element name="a">
                     <xsl:attribute name="href">
                       <xsl:text>#</xsl:text>
-                      <xsl:value-of select="./a//@href"/>
+                      <xsl:value-of select="substring(./a//@href, 1, string-length(./a//@href) - 1)"/>
                     </xsl:attribute>
                     <xsl:attribute name="class">vernacular</xsl:attribute>
                     <xsl:value-of select="$targets"/>
@@ -230,7 +230,7 @@
                       <xsl:text>&amp;char=</xsl:text>
                       <xsl:value-of select="substring($targets, 1, 1)"/>
                       <xsl:text>#</xsl:text>
-                      <xsl:value-of select="./a//@href"/>
+                      <xsl:value-of select="substring(./a//@href, 1, string-length(./a//@href) - 1)"/>
                     </xsl:attribute>
                     <xsl:attribute name="class">vernacular</xsl:attribute>
                     <xsl:value-of select="$targets"/>
