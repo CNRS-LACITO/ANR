@@ -103,7 +103,7 @@
                 		trigger_error('XSL transformation failed.', E_USER_ERROR);
             		}
             	}
-            ?></td>
+            ?><a href="#">Back to top</a></td>
   </tr
 >
 </table>
