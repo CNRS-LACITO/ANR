@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Corpus</title>
+<title>Selection</title>
 <link href="../../styles.css" rel="stylesheet" type="text/css"/>
 <style type="text/css">
 a:link {
@@ -51,25 +51,127 @@ a:active {
     <!-- Left menu -->
     <td width="100" height="700" align="left" valign="top"><p class="menu"><a href="index.htm">Presentation</a></p>
       <p class="menu"><a href="mythology.htm">Kiranti mythology</a></p>
-      <p class="menu"><a href="selection.htm">Corpus selection</a></p></td>
+      <p class="menu"><a href="selection.htm">Corpus access</a></p></td>
     <!-- Contents -->
-    <td width="1100" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p align="center"><a href="ViewAllSimilarities.php?similarity=SIMILARITIES.xml"><span style="color:#30F"><b>Similarities visualisation</b></span></a></p>
-      <ul>
-        <li>Thulung
-          <ul>
-            <li type="square">Dialect 1</li>
-            <li type="square">Dialect 2</li>
-          </ul>
-        </li>
-        <li>Khaling</li>
-        <li>Koyi</li>
-      </ul></td>
+    <td width="1100" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p><b>Corpus selection</b></p>
+      <p>&nbsp;</p>
+      <form id="view" name="view" action="ViewAllSimilarities.php?similarity=SIMILARITIES.xml" method="post">
+      <table class="tab" height="300px" width="500px">
+						<th class="tab">Proto-story</th>
+                        <th class="tab">Language/Dialect</th>
+
+                        <th class="tab">Speaker</th>
+                        <th class="tab">&nbsp;</th>
+
+                       
+
+                        	<tr >
+                            	<td rowspan="3" class="tab">Orphans</td>
+                                <td class="tab">Thulung</td>
+                                <td class="tab">Lakpa</td>
+
+                               
+                                <td class="tab"><input type="checkbox" name="orphans[]" value="orphans1"/> </td>
+                    
+
+                         
+                      	  </tr>
+                        	<tr>
+                         
+                        	  <td class="tab">Koyi</td>
+                        	  <td class="tab">Phanindra</td>
+
+                              <td class="tab"><input type="checkbox" name="orphans[]" value="orphans2"/> </td>
+                   	      </tr>
+                 
+                        	<tr>
+                        
+                        	  <td class="tab">Khaling</td>
+                        	  <td class="tab">Dhana</td>
+
+                              <td class="tab"><input type="checkbox" name="orphans[]" value="orphans3"/> </td>
+                   	      </tr>
+                        </table>
+                        <p>&nbsp;</p>
+       <INPUT type="submit" value="View selected corpus">
+<p>&nbsp;</p>
+                        
+                        
+                       	<!--<table border="1" height="300px" width="500px">
+                        <th>Protohistoire</th>
+                        <th>&nbsp;</th>
+                        <th>Langue/Dialecte</th>
+                        <th>&nbsp;</th>
+                        <th>Locuteur</th>
+
+                       
+                        <th>Choix</th>
+                        	<tr>
+                            	<td rowspan="6">Ogresse</td>
+                                <td rowspan="3">&#x2197;</td>
+                                <td rowspan="3">Thulung</td>
+                                <td rowspan="3">&#x2197; <br/>&#x2192; <br/> &#x2198;</td>
+                                <td>Locuteur 1</td>
+
+                               
+                                <td><input type="checkbox" name="ogresse[]" value="ThuL1"/> </td>
+                               
+                          </tr>
+                        	<tr>
+                            <td>Locuteur 2</td>
+
+                            <td><input type="checkbox" name="ogresse[]" value="ThuL2"/> </td>
+                      	  </tr>
+                        	<tr>
+                            <td>Locuteur 3</td>
+
+                            <td><input type="checkbox" name="ogresse[]" value="ThuL3"/> </td>
+                      	  </tr>
+                        	<tr>
+                            <td rowspan="2">&#x2192;</td>
+                        	  <td rowspan="2">Koyi</td>
+                              <td rowspan="2">&#x2197; <br/> &#x2198;</td>
+                        	  <td>Locuteur 1</td>
+
+                              <td><input type="checkbox" name="ogresse[]" value="KoyL1"/> </td>
+                   	      </tr>
+                        	<tr>
+                        	  <td>Locuteur 4</td>
+
+                              <td><input type="checkbox" name="ogresse[]" value="KoyL4"/> </td>
+                      	  </tr>
+                        	<tr>
+                            <td>&#x2198;</td>
+                        	  <td>Khaling</td>
+                              <td>&#x2192; <br/></td>
+                        	  <td>Locuteur 5</td>
+
+                              <td><input type="checkbox" name="ogresse[]" value="KhaL5"/> </td>
+                   	      </tr>
+                        </table>
+                        <p>&nbsp;</p>-->
+                        
+                        </form>
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      
+      
+      </td>
   </tr>
 </table>
 <!-- Footer -->
 <table width="1200" height="30" align="center">
   <tr>
-    <td width="1200" height="30" align="center"><b>Corpus and dictionaries have been compiled thanks to the ANR financial support.</b></td>
+    <td width="1200" height="30" align="center"><b>Corpus and dictionaries compiled thanks to funding by the ANR.</b></td>
   </tr>
   <tr>
     <td width="1200" align="center"><img src="../../images/logos/ANR.gif"></td>

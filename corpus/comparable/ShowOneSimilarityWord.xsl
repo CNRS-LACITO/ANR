@@ -241,9 +241,9 @@
 						<tr>
 							<td valign="top">
 								
-								<table border="1">
-									<tr><th align="center"><xsl:value-of select="$f1_lang"/></th></tr>
-									<tr><th align="center"><xsl:value-of select="$f1_xml"/></th></tr>
+								<table>
+									<tr><th><xsl:value-of select="$f1_lang"/></th></tr>
+									<tr><th><xsl:value-of select="$f1_xml"/></th></tr>
 								<!--<xsl:call-template name="player-audio_wav_file1">
 									<xsl:with-param name="f1_sound" select="$f1_sound"/>
 									<xsl:with-param name="f1_xml" select="$f1_xml"/>
@@ -261,7 +261,7 @@
 										<tr>
 										<td class="segmentContent" width="600px" bgcolor="{$color}">
 											<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
-											**Sentence <xsl:value-of select="$num_s"/>**<br/>
+											Sentence <xsl:value-of select="$num_s"/><br/>
 										
 											
 											
@@ -597,7 +597,7 @@
 							
 							<td valign="top">
 								
-								<table border="1">
+								<table border="0">
 									<tr><th align="center"><xsl:value-of select="$f2_lang"/></th></tr>
 									<tr><th align="center"><xsl:value-of select="$f2_xml"/></th></tr>
 									<!--<xsl:call-template name="player-audio_wav_file1">
@@ -617,7 +617,7 @@
 												<tr>
 												<td class="segmentContent" width="600px" bgcolor="{$color}">
 													<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
-													**Sentence <xsl:value-of select="$num_s"/>**<br/>
+													Sentence <xsl:value-of select="$num_s"/><br/>
 													
 													
 													
@@ -914,7 +914,7 @@
 							
 							<td valign="top">
 								
-								<table border="1">
+								<table border="0">
 									<tr><th align="center"><xsl:value-of select="$f3_lang"/></th></tr>
 									<tr><th align="center"><xsl:value-of select="$f3_xml"/></th></tr>
 									<!--<xsl:call-template name="player-audio_wav_file1">
@@ -934,7 +934,7 @@
 												<tr>
 												<td class="segmentContent" width="600px" bgcolor="{$color}">
 													<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
-													**Sentence <xsl:value-of select="$num_s"/>**<br/>
+													Sentence <xsl:value-of select="$num_s"/><br/>
 													
 													
 													

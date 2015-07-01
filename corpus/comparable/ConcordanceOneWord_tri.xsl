@@ -215,7 +215,7 @@
 					
 
 					<br/><br/>
-					<div>
+					<!--<div>
 						Rechercher un terme :
 						<br/>
 						<form id="form" name="form" action="CreateConcordanceOneWord.php"  method="post">
@@ -223,7 +223,7 @@
 						
 							<input type="submit" value="OK" />
 						</form>
-					</div>
+					</div>-->
 					
 					
 					

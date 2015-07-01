@@ -37,12 +37,12 @@ a:active {
 <!-- Menu -->
 <table width="1200" height="30" align="center">
   <tr>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../index.htm">Présentation</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="mythologie.htm">Mythologie kiranti</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../dictionaries/index.htm">Dictionnaires</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="index.htm">Corpus comparables</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../links.htm">Liens</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../contact.htm">Contact</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../index.htm">Presentation</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="index.htm">Comparable corpus</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../dictionaries/index.htm">Dictionaries</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../links.htm">Read more</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu">TBD</td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../contact.htm">Contact information</a></td>
   </tr>
 </table>
 <!-- Body -->

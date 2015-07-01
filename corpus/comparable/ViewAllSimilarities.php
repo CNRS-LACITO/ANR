@@ -37,24 +37,34 @@ a:active {
 <!-- Menu -->
 <table width="1200" height="30" align="center">
   <tr>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../index.htm">Présentation</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="mythologie.htm">Mythologie kiranti</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../dictionaries/index.htm">Dictionnaires</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="index.htm">Corpus comparables</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../links.htm">Liens</a></td>
-    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../contact.htm">Contact</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../index.htm">Presentation</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="index.htm">Comparable corpus</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../dictionaries/index.htm">Dictionaries</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../links.htm">Read more</a></td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu">TBD</td>
+    <td width="200" height="30" align="center" background="../../images/HimalCo/bouton.png" class="menu"><a href="../../contact.htm">Contact information</a></td>
   </tr>
 </table>
 <!-- Body -->
 <table width="1200" height="700" align="center" class="fond">
   <tr>
-    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF"><?php
+  <td width="100" height="700" align="left" valign="top"><p class="menu"><a href="index.htm">Presentation</a></p>
+      <p class="menu"><a href="mythology.htm">Kiranti mythology</a></p>
+      <p class="menu"><a href="selection.htm">Corpus access</a></p></td>
+    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF">
+	
+	
+	
+	<?php
 		
 	  $similarity=  isset($_GET["similarity"])    ? $_GET["similarity"]    : "*";
 	  $trans=  "ShowAllSimilarities.xsl";
 	  
 	
-
+foreach($_POST['orphans'] as $valeur)
+{
+   echo "La checkbox $valeur a été cochée<br>";
+}
 
 					
 		ViewSimilarities($similarity, $trans);
@@ -98,6 +108,7 @@ function ViewSimilarities($similarity, $trans) {
 <!-- Footer -->
 <table width="1200" height="30" align="center">
   <tr>
+  
     <td width="1200" height="30" align="center"><b>Les corpus et dictionnaires ont &eacute;t&eacute; compil&eacute;s avec l'aide financi&egrave;re de l'ANR.</b></td>
   </tr>
   <tr>

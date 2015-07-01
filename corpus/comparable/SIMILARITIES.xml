@@ -1,93 +1,95 @@
-<?xml-stylesheet type="text/xsl" href="ConcordanceOneWord_xml.xsl"?>
 <similarities>
 <files>
-<file xml="annotations/crdo-TDH_KAKCILIP.xml" lang="thulung" sound="../audio/125808_KAKCILIP_22km.wav"/>
-<file xml="annotations/crdo-KKT_ORIGIN.xml" lang="koyi" sound="Emp_Fic_Audio"/>
-<file xml="annotations/crdo-KHA_KHAKTSALOP.xml" lang="khaling" sound="Emp_Fic_Audio"/>
+<file xml="annotations/crdo-TDH_KAKCILIP.xml" lang="Thulung" sound="Kakcilip.wav"/>
+<file xml="annotations/crdo-KKT_ORIGIN.xml" lang="Koyi" sound="Origin.wav"/>
+<file xml="annotations/crdo-KLR_KHAKTSALOP.xml" lang="Khaling" sound="Khaktsalop.wav"/>
+<!--<file xml="annotations/crdo-TDH_KAKCILIP_FAUX.xml" lang="Thulung" sound="Kakcilip.wav"/>
+<file xml="annotations/crdo-KKT_ORIGIN_FAUX.xml" lang="Koyi" sound="Origin.wav"/>
+<file xml="annotations/crdo-KLR_KHAKTSALOP_FAUX.xml" lang="Khaling" sound="Khaktsalop.wav"/>-->
 </files>
 <similarity id="1">
-<color>aliceblue</color>
+<color>#EAF7FB</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s1"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s1"/>
 	</file>
 </similarity>
 <similarity id="2">
-<color>antiquewhite</color>
+<color>#EAFFEF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s2"/>
 	</file>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s191"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s2"/>
 		<sentence id="s3"/>
 		<sentence id="s4"/>
 	</file>
 </similarity>
 <similarity id="3">
-<color>aquamarine</color>
+<color>#FFEEFD</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s3"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s9"/>
 	</file>
 </similarity>
 <similarity id="4">
-<color>cadetblue</color>
+<color>#F3F8F4</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s12"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s13"/>
 	</file>
 </similarity>
 <similarity id="5">
-<color>chocolate</color>
+<color>#F1ECFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s13"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s20"/>
 	</file>
 </similarity>
 <similarity id="6">
-<color>cornflowerblue</color>
+<color>#FFFFE3</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s14"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s22"/>
 	</file>
 </similarity>
 <similarity id="7">
-<color>cyan</color>
+<color>#F9FDFF</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s203"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s19"/>
 		<sentence id="s25"/>
 	</file>
 </similarity>
 <similarity id="8">
-<color>darkgoldenrod</color>
+<color>#FFECEC</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s15"/>
 	</file>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s204"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s29"/>
 	</file>
 </similarity>
 <similarity id="9">
-<color>darkgray</color>
+<color>#E6FCFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s15"/>
 	</file>
@@ -97,7 +99,7 @@
 	</file>
 </similarity>
 <similarity id="10">
-<color>darkkhaki</color>
+<color>#E0EAF8</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s16"/>
 	</file>
@@ -106,20 +108,20 @@
 	</file>
 </similarity>
 <similarity id="11">
-<color>darkolivegreen</color>
+<color>#EAF7FB</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s211"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s31"/>
 	</file>
 </similarity>
 <similarity id="12">
-<color>darkorange</color>
+<color>#EAFFEF</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s216"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s54"/>
 		<sentence id="s55"/>
 		<sentence id="s56"/>
@@ -131,150 +133,150 @@
 	</file>
 </similarity>
 <similarity id="13">
-<color>darksalmon</color>
+<color>#FFEEFD</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s217"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s37"/>
 		<sentence id="s38"/>
 	</file>
 </similarity>
 <similarity id="14">
-<color>darkseagreen</color>
+<color>#F3F8F4</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s218"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s42"/>
 		<sentence id="s49"/>
 	</file>
 </similarity>
 <similarity id="15">
-<color>darkturquoise</color>
+<color>#F1ECFF</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s221"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s78"/>
 	</file>
 </similarity>
 <similarity id="16">
-<color>dimgray</color>
+<color>#FFFFE3</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s223"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s95"/>
 	</file>
 </similarity>
 <similarity id="17">
-<color>darkcyan</color>
+<color>#F9FDFF</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s225"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s98"/>
 	</file>
 </similarity>
 <similarity id="18">
-<color>gainsboro</color>
+<color>#FFECEC</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s226"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s99"/>
 		<sentence id="s100"/>
 	</file>
 </similarity>
 <similarity id="19">
-<color>gold</color>
+<color>#E6FCFF</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s227"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s103"/>
 	</file>
 </similarity>
 <similarity id="20">
-<color>goldenrod</color>
+<color>#E0EAF8</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s228"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s106"/>
 	</file>
 </similarity>
 <similarity id="21">
-<color>gray</color>
+<color>#EAF7FB</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s229"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s111"/>
 	</file>
 </similarity>
 <similarity id="22">
-<color>greenyellow</color>
+<color>#EAFFEF</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s230"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s113"/>
 	</file>
 </similarity>
 <similarity id="23">
-<color>honeydew</color>
+<color>#FFEEFD</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s231"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s114"/>
 		<sentence id="s115"/>
 	</file>
 </similarity>
 <similarity id="24">
-<color>hotpink</color>
+<color>#F3F8F4</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s232"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s118"/>
 	</file>
 </similarity>
 <similarity id="25">
-<color>indianred</color>
+<color>#F1ECFF</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s233"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s120"/>
 		<sentence id="s13"/>
 	</file>
 </similarity>
 <similarity id="26">
-<color>khaki</color>
+<color>#FFFFE3</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s73"/>
 	</file>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s235"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s122"/>
 	</file>
 </similarity>
 <similarity id="27">
-<color>lavender</color>
+<color>#F9FDFF</color>
 	<file id="annotations/crdo-KKT_ORIGIN.xml">
 		<sentence id="s236"/>
 	</file>
-	<file id="annotations/crdo-KHA_KHAKTSALOP.xml">
+	<file id="annotations/crdo-KLR_KHAKTSALOP.xml">
 		<sentence id="s123"/>
 	</file>
 </similarity>
 <similarity id="28">
-<color>lavenderblush</color>
+<color>#FFECEC</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s19"/>
 	</file>
@@ -283,7 +285,7 @@
 	</file>
 </similarity>
 <similarity id="29">
-<color>lawngreen</color>
+<color>#E6FCFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s21"/>
 	</file>
@@ -292,7 +294,7 @@
 	</file>
 </similarity>
 <similarity id="30">
-<color>lemonchiffon</color>
+<color>#E0EAF8</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s24"/>
 	</file>
@@ -301,7 +303,7 @@
 	</file>
 </similarity>
 <similarity id="31">
-<color>lightblue</color>
+<color>#EAF7FB</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s30"/>
 	</file>
@@ -310,7 +312,7 @@
 	</file>
 </similarity>
 <similarity id="32">
-<color>lightcoral</color>
+<color>#EAFFEF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s41"/>
 		<sentence id="s42"/>
@@ -321,7 +323,7 @@
 	</file>
 </similarity>
 <similarity id="33">
-<color>lightcyan</color>
+<color>#FFEEFD</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s44"/>
 	</file>
@@ -330,7 +332,7 @@
 	</file>
 </similarity>
 <similarity id="34">
-<color>lightgoldenrodyellow</color>
+<color>#F3F8F4</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s45"/>
 		<sentence id="s46"/>
@@ -340,7 +342,7 @@
 	</file>
 </similarity>
 <similarity id="35">
-<color>lightgreen</color>
+<color>#F1ECFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s55"/>
 	</file>
@@ -349,7 +351,7 @@
 	</file>
 </similarity>
 <similarity id="36">
-<color>lightgrey</color>
+<color>#FFFFE3</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s56"/>
 	</file>
@@ -358,7 +360,7 @@
 	</file>
 </similarity>
 <similarity id="37">
-<color>lightpink</color>
+<color>#F9FDFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s59"/>
 	</file>
@@ -367,7 +369,7 @@
 	</file>
 </similarity>
 <similarity id="38">
-<color>lightsalmon</color>
+<color>#FFECEC</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s62"/>
 	</file>
@@ -376,7 +378,7 @@
 	</file>
 </similarity>
 <similarity id="39">
-<color>lightseagreen</color>
+<color>#E6FCFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s63"/>
 	</file>
@@ -385,7 +387,7 @@
 	</file>
 </similarity>
 <similarity id="40">
-<color>lightskyblue</color>
+<color>#E0EAF8</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s65"/>
 	</file>
@@ -394,7 +396,7 @@
 	</file>
 </similarity>
 <similarity id="41">
-<color>lightslategray</color>
+<color>#EAF7FB</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s76"/>
 	</file>
@@ -403,7 +405,7 @@
 	</file>
 </similarity>
 <similarity id="42">
-<color>lightsteelblue</color>
+<color>#EAFFEF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s79"/>
 	</file>
@@ -412,7 +414,7 @@
 	</file>
 </similarity>
 <similarity id="43">
-<color>lightyellow</color>
+<color>#FFEEFD</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s82"/>
 	</file>
@@ -421,7 +423,7 @@
 	</file>
 </similarity>
 <similarity id="44">
-<color>lime</color>
+<color>#F3F8F4</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s84"/>
 	</file>
@@ -430,7 +432,7 @@
 	</file>
 </similarity>
 <similarity id="45">
-<color>limegreen</color>
+<color>#F1ECFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s87"/>
 	</file>
@@ -439,7 +441,7 @@
 	</file>
 </similarity>
 <similarity id="46">
-<color>linen</color>
+<color>#FFFFE3</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s86"/>
 	</file>
@@ -448,7 +450,7 @@
 	</file>
 </similarity>
 <similarity id="47">
-<color>magenta</color>
+<color>#F9FDFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s91"/>
 	</file>
@@ -457,7 +459,7 @@
 	</file>
 </similarity>
 <similarity id="48">
-<color>maroon</color>
+<color>#FFECEC</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s93"/>
 		<sentence id="s94"/>
@@ -467,7 +469,7 @@
 	</file>
 </similarity>
 <similarity id="49">
-<color>mediumaquamarine</color>
+<color>#E6FCFF</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s98"/>
 		<sentence id="s99"/>
@@ -477,7 +479,7 @@
 	</file>
 </similarity>
 <similarity id="50">
-<color>mediumblue</color>
+<color>#E0EAF8</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s100"/>
 	</file>
@@ -486,7 +488,7 @@
 	</file>
 </similarity>
 <similarity id="51">
-<color>mediumorchid</color>
+<color>#EAF7FB</color>
 	<file id="annotations/crdo-TDH_KAKCILIP.xml">
 		<sentence id="s102"/>
 	</file>

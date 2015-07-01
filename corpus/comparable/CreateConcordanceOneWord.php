@@ -48,7 +48,7 @@ a:active {
 <!-- Body -->
 <table width="1200" height="700" align="center" class="fond">
   <tr>
-    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p> <a href="ViewAllSimilarities.php?similarity=SIMILARITIES.xml"><span style="color:#30F"><b>Retour à l'affichage du corpus complet</b></span></a> </p>
+    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p> <a href="ViewAllSimilarities.php?similarity=SIMILARITIES.xml"><span style="color:#30F"><b>Back to selected corpus</b></span></a> </p>
       <?php
 		
 	  set_time_limit(0); 
