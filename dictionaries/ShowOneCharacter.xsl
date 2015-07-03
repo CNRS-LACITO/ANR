@@ -139,6 +139,17 @@
             </xsl:if>
           </span>
           <xsl:text>	</xsl:text>
+          <!-- Tone -->
+          <xsl:if test="./Lemma/FormRepresentation/feat[@att='tone']//@val">
+            <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
+              <xsl:text>Ton : </xsl:text>
+            </xsl:if>
+            <xsl:if test="$lang1='eng' or $lang2='eng'">
+              <xsl:text>Tone: </xsl:text>
+            </xsl:if>
+            <xsl:value-of select="./Lemma/FormRepresentation/feat[@att='tone']//@val"/>
+            <xsl:text>. </xsl:text>
+          </xsl:if>
           <!-- Display gloss in selected language(s) and in national language -->
           <span class="$lang1">
             <xsl:if
