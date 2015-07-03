@@ -178,8 +178,7 @@
             test="./Sense/SubjectField/feat[@att='language' and @val=$lang1]//ancestor::SubjectField/feat[@att='semanticDomain']//@val">
             <i>
               <xsl:value-of
-                select="./Sense/SubjectField/feat[@att='language' and @val=$lang1]//ancestor::SubjectField/feat[@att='semanticDomain']//@val"
-              />
+                select="./Sense/SubjectField/feat[@att='language' and @val=$lang1]//ancestor::SubjectField/feat[@att='semanticDomain']//@val"/>
               <xsl:text>. </xsl:text>
             </i>
           </xsl:if>
@@ -187,13 +186,13 @@
             test="./Sense/SubjectField/feat[@att='language' and @val=$lang2]//ancestor::SubjectField/feat[@att='semanticDomain']//@val">
             <i>
               <xsl:value-of
-                select="./Sense/SubjectField/feat[@att='language' and @val=$lang2]//ancestor::SubjectField/feat[@att='semanticDomain']//@val"
-              />
+                select="./Sense/SubjectField/feat[@att='language' and @val=$lang2]//ancestor::SubjectField/feat[@att='semanticDomain']//@val"/>
               <xsl:text>. </xsl:text>
             </i>
           </xsl:if>
           <!-- Cross references -->
           <xsl:for-each select="./RelatedForm">
+            <!-- confer -->
             <xsl:if test="./feat[@att='semanticRelation' and @val='simple link']">
               <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
                 <xsl:text>Voir : </xsl:text>
@@ -201,44 +200,78 @@
               <xsl:if test="$lang1='eng' or $lang2='eng'">
                 <xsl:text>See: </xsl:text>
               </xsl:if>
-              <!-- Insert link -->
-              <xsl:if test="./a//@href">
-                <xsl:variable name="targets" select="./a[@href][1]"/>
-                <!-- Local link -->
-                <xsl:if test="starts-with($targets, $char)">
-                  <xsl:element name="a">
-                    <xsl:attribute name="href">
-                      <xsl:text>#</xsl:text>
-                      <xsl:value-of select="substring(./a//@href, 1, string-length(./a//@href) - 1)"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="class">vernacular</xsl:attribute>
-                    <xsl:value-of select="$targets"/>
-                  </xsl:element>
-                </xsl:if>
-                <!-- Hyperlink -->
-                <xsl:if test="not(starts-with($targets, $char))">
-                  <xsl:element name="a">
-                    <xsl:attribute name="href">
-                      <xsl-text>ViewOneCharacter.php?dict=</xsl-text>
-                      <xsl:value-of select="$dict"/>
-                      <xsl:text>&amp;lang1=</xsl:text>
-                      <xsl:value-of select="$lang1"/>
-                      <xsl:text>&amp;lang2=</xsl:text>
-                      <xsl:value-of select="$lang2"/>
-                      <xsl:text>&amp;langn=</xsl:text>
-                      <xsl:value-of select="$langn"/>
-                      <xsl:text>&amp;char=</xsl:text>
-                      <xsl:value-of select="substring($targets, 1, 1)"/>
-                      <xsl:text>#</xsl:text>
-                      <xsl:value-of select="substring(./a//@href, 1, string-length(./a//@href) - 1)"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="class">vernacular</xsl:attribute>
-                    <xsl:value-of select="$targets"/>
-                  </xsl:element>
-                </xsl:if>
-              </xsl:if>
-              <xsl:text>	</xsl:text>
             </xsl:if>
+            <!-- synonym -->
+            <xsl:if test="./feat[@att='semanticRelation' and @val='synonym']">
+              <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
+                <xsl:text>Syn : </xsl:text>
+              </xsl:if>
+              <xsl:if test="$lang1='eng' or $lang2='eng'">
+                <xsl:text>Syn: </xsl:text>
+              </xsl:if>
+            </xsl:if>
+            <!-- antonym -->
+            <xsl:if test="./feat[@att='semanticRelation' and @val='antonym']">
+              <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
+                <xsl:text>Ant : </xsl:text>
+              </xsl:if>
+              <xsl:if test="$lang1='eng' or $lang2='eng'">
+                <xsl:text>Ant: </xsl:text>
+              </xsl:if>
+            </xsl:if>
+            <!-- homonym -->
+            <xsl:if test="./feat[@att='semanticRelation' and @val='homonym']">
+              <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
+                <xsl:text>Voir : </xsl:text>
+              </xsl:if>
+              <xsl:if test="$lang1='eng' or $lang2='eng'">
+                <xsl:text>See: </xsl:text>
+              </xsl:if>
+            </xsl:if>
+            <!-- Insert link -->
+            <xsl:choose>
+              <xsl:when
+                test="./feat[@att='semanticRelation' and (@val='simple link' or @val='synonym' or @val='antonym')]">
+                <xsl:if test="./a//@href">
+                  <xsl:variable name="targets" select="./a[@href][1]"/>
+                  <!-- Local link -->
+                  <xsl:if test="starts-with($targets, $char)">
+                    <xsl:element name="a">
+                      <xsl:attribute name="href">
+                        <xsl:text>#</xsl:text>
+                        <xsl:value-of
+                          select="substring(./a//@href, 1, string-length(./a//@href) - 1)"/>
+                      </xsl:attribute>
+                      <xsl:attribute name="class">vernacular</xsl:attribute>
+                      <xsl:value-of select="$targets"/>
+                    </xsl:element>
+                  </xsl:if>
+                  <!-- Hyperlink -->
+                  <xsl:if test="not(starts-with($targets, $char))">
+                    <xsl:element name="a">
+                      <xsl:attribute name="href">
+                        <xsl-text>ViewOneCharacter.php?dict=</xsl-text>
+                        <xsl:value-of select="$dict"/>
+                        <xsl:text>&amp;lang1=</xsl:text>
+                        <xsl:value-of select="$lang1"/>
+                        <xsl:text>&amp;lang2=</xsl:text>
+                        <xsl:value-of select="$lang2"/>
+                        <xsl:text>&amp;langn=</xsl:text>
+                        <xsl:value-of select="$langn"/>
+                        <xsl:text>&amp;char=</xsl:text>
+                        <xsl:value-of select="substring($targets, 1, 1)"/>
+                        <xsl:text>#</xsl:text>
+                        <xsl:value-of
+                          select="substring(./a//@href, 1, string-length(./a//@href) - 1)"/>
+                      </xsl:attribute>
+                      <xsl:attribute name="class">vernacular</xsl:attribute>
+                      <xsl:value-of select="$targets"/>
+                    </xsl:element>
+                  </xsl:if>
+                </xsl:if>
+                <xsl:text>	</xsl:text>
+              </xsl:when>
+            </xsl:choose>
           </xsl:for-each>
         </dt>
         <!-- Apply another template to display examples -->
