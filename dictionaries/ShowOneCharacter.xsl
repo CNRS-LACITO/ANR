@@ -150,6 +150,22 @@
             <xsl:value-of select="./Lemma/FormRepresentation/feat[@att='tone']//@val"/>
             <xsl:text>. </xsl:text>
           </xsl:if>
+          <!-- Paradigm -->
+          <xsl:if test="./Sense/Paradigm">
+            <xsl:for-each select="./Sense/Paradigm">
+              <xsl:value-of select="./feat[@att='paradigmLabel']//@val"/>
+              <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
+                <xsl:text> : </xsl:text>
+              </xsl:if>
+              <xsl:if test="$lang1='eng' or $lang2='eng'">
+                <xsl:text>: </xsl:text>
+              </xsl:if>
+              <span class="vernacular">
+                <xsl:value-of select="./feat[@att='paradigm']//@val"/>
+              </span>
+              <xsl:text> </xsl:text>
+            </xsl:for-each>
+          </xsl:if>
           <!-- Borrowed word -->
           <xsl:if test="./Sense/Definition/Statement/feat[@att='borrowedWord']">
             <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
@@ -186,7 +202,9 @@
               <xsl:text>Etym: </xsl:text>
             </xsl:if>
             <xsl:if test="./Sense/Definition/Statement/feat[@att='etymology']">
-              <xsl:value-of select="./Sense/Definition/Statement/feat[@att='etymology']//@val"/>
+              <span class="vernacular">
+                <xsl:value-of select="./Sense/Definition/Statement/feat[@att='etymology']//@val"/>
+              </span>
               <xsl:text>. </xsl:text>
             </xsl:if>
             <!-- Check if value has already been formatted in XML -->
