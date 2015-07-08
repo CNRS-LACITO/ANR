@@ -150,6 +150,33 @@
             <xsl:value-of select="./Lemma/FormRepresentation/feat[@att='tone']//@val"/>
             <xsl:text>. </xsl:text>
           </xsl:if>
+          <!-- Borrowed word -->
+          <xsl:if test="./Sense/Definition/Statement/feat[@att='borrowedWord']">
+
+            <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
+              <xsl:text>De : </xsl:text>
+            </xsl:if>
+            <xsl:if test="$lang1='eng' or $lang2='eng'">
+              <xsl:text>From: </xsl:text>
+            </xsl:if>
+            <xsl:value-of select="./Sense/Definition/Statement/feat[@att='borrowedWord']//@val"/>
+            <xsl:text> </xsl:text>
+            <!-- Check if value has already been formatted in XML -->
+            <xsl:choose>
+              <xsl:when
+                test="./Sense/Definition/Statement/feat[@att='borrowedWord']//ancestor::Statement/feat[@att='writtenForm']//@val/../span//@class">
+                <xsl:copy-of
+                  select="./Sense/Definition/Statement/feat[@att='borrowedWord']//ancestor::Statement/feat[@att='writtenForm']//@val/../node()"
+                />
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of
+                  select="./Sense/Definition/Statement/feat[@att='borrowedWord']//ancestor::Statement/feat[@att='writtenForm']//@val"
+                />
+              </xsl:otherwise>
+            </xsl:choose>
+            <xsl:text>. </xsl:text>
+          </xsl:if>
           <!-- Display gloss in selected language(s) and in national language -->
           <span class="$lang1">
             <xsl:if
