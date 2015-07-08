@@ -152,7 +152,6 @@
           </xsl:if>
           <!-- Borrowed word -->
           <xsl:if test="./Sense/Definition/Statement/feat[@att='borrowedWord']">
-
             <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
               <xsl:text>De : </xsl:text>
             </xsl:if>
@@ -176,6 +175,37 @@
               </xsl:otherwise>
             </xsl:choose>
             <xsl:text>. </xsl:text>
+          </xsl:if>
+          <!-- Etymology -->
+          <xsl:if
+            test="./Sense/Definition/Statement/feat[@att='etymology'] or ./Sense/Definition/Statement/feat[@att='etymologyComment']">
+            <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
+              <xsl:text>Etym : </xsl:text>
+            </xsl:if>
+            <xsl:if test="$lang1='eng' or $lang2='eng'">
+              <xsl:text>Etym: </xsl:text>
+            </xsl:if>
+            <xsl:if test="./Sense/Definition/Statement/feat[@att='etymology']">
+              <xsl:value-of select="./Sense/Definition/Statement/feat[@att='etymology']//@val"/>
+              <xsl:text>. </xsl:text>
+            </xsl:if>
+            <!-- Check if value has already been formatted in XML -->
+            <xsl:if
+              test="./Sense/Definition/Statement/feat[@att='termSourceLanguage']//@val=$lang1 or ./Sense/Definition/Statement/feat[@att='termSourceLanguage']//@val=$lang2 or ./Sense/Definition/Statement/feat[@att='termSourceLanguage']//@val=$langn">
+              <xsl:choose>
+                <xsl:when
+                  test="./Sense/Definition/Statement/feat[@att='etymologyComment']//@val/../span//@class">
+                  <xsl:copy-of
+                    select="./Sense/Definition/Statement/feat[@att='etymologyComment']//@val/../node()"
+                  />
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of
+                    select="./Sense/Definition/Statement/feat[@att='etymologyComment']//@val"/>
+                </xsl:otherwise>
+              </xsl:choose>
+              <xsl:text> </xsl:text>
+            </xsl:if>
           </xsl:if>
           <!-- Display gloss in selected language(s) and in national language -->
           <span class="$lang1">
