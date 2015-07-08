@@ -122,6 +122,21 @@
               <xsl:text>	</xsl:text>
             </span>
           </xsl:if>
+          <!-- Variant -->
+          <xsl:if test="$dict='japhug'">
+            <xsl:if test="./Lemma/FormRepresentation/feat[@att='variantForm']//@val">
+              <xsl:if test="($lang1='fra' or $lang2='fra') and $lang1!='eng' and $lang2!='eng'">
+                <xsl:text>Variante : </xsl:text>
+              </xsl:if>
+              <xsl:if test="$lang1='eng' or $lang2='eng'">
+                <xsl:text>Variant: </xsl:text>
+              </xsl:if>
+              <span class="vernacular">
+                <xsl:value-of select="./Lemma/FormRepresentation/feat[@att='variantForm']//@val"/>
+              </span>
+              <xsl:text>	</xsl:text>
+            </xsl:if>
+          </xsl:if>
           <!-- Listen audio -->
           <xsl:for-each select="./Lemma/FormRepresentation/Audio">
             <xsl:call-template name="play_audio">
