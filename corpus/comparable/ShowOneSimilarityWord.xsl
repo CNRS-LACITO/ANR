@@ -6,264 +6,140 @@
     <xsl:param name="similarity" select="''"/>
 	
 	<xsl:param name="mot" select="''"/>
+    
+	<xsl:param name="filesim" select="'*'"/>
 
-	
-	<xsl:param name="f1_xml" select="similarities/files/file[1]/@xml"/>
-	<xsl:param name="f2_xml" select="similarities/files/file[2]/@xml"/>
-	<xsl:param name="f3_xml" select="similarities/files/file[3]/@xml"/>
-	
-	<xsl:param name="f1_lang" select="similarities/files/file[1]/@lang"/>
-	<xsl:param name="f2_lang" select="similarities/files/file[2]/@lang"/>
-	<xsl:param name="f3_lang" select="similarities/files/file[3]/@lang"/>
-	
-	<xsl:param name="f1_sound" select="similarities/files/file[1]/@sound"/>
-	<xsl:param name="f2_sound" select="similarities/files/file[2]/@sound"/>
-	<xsl:param name="f3_sound" select="similarities/files/file[3]/@sound"/>
+    <xsl:param name="file1" select="'*'"/>
+    <xsl:param name="file2" select="'*'"/>
+    <xsl:param name="file3" select="'*'"/>
+    <xsl:param name="file4" select="'*'"/>
+    <xsl:param name="file5" select="'*'"/>
+    <xsl:param name="file6" select="'*'"/>
 	
 	<!-- ******************************************************** -->
-	<xsl:template match="/">
+	 <xsl:template match="/">
     
-    
+    <!--<xsl:value-of select="$filesim"/>-->
 		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 			<head>
 				<meta http-equiv="Content-Language" content="fr"/>
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 				<script src="../outils/showhide.js" type="text/javascript">.</script>
-				
-		
-  
-	
-				
-				<style>
-					/*****************************************************************************/     
-					/* pour presenter un texte interlineaire                                    **/
-					/*****************************************************************************/  
-					
-				
-					table.it {
-					border-collapse: separate;
-					}
-					.transcriptTable { 
-					border-collapse:collapse;
-					vertical-align:middle;
-					/*background-color:#D3E8FA;*/
-					/*  background-color:#CBE2FE;*/
-					background-color:#EEF8FF;
-					
-					}
-					
-					.segmentInfo {
-					background-color:#0E3263;
-					color:White;
-					vertical-align:top;
-					/**
-					width:60px;
-					**/
-					}
-					
-					.segmentContent {
-					
-					width:600px;
-					
-					
-					
-					}
-					
-					
-					.sentence {
-					
-					border-collapse: separate ;
-					display: inline;
-					vertical-align:middle;
-					text-align:left;
-					
-					}
-					
-					/*Couleur de la phrase de transcription*/
-					.word_sentence{
-					
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					border-collapse: separate ;
-					display: inline;
-					/*	color:#000066;*/
-					color:#0E3263;
-					font-size:15px;
-					text-align:left;
-					font-weight: bold;
-					
-					}
-					
-					/*Couleur de la phrase de traduction*/
-					.translation_en {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					color:#2E6398;
-					text-align:left;
-					font-weight: bold; 
-					font-size:12px;
-					display:inline;
-					
-					}
-					
-					.translation_fr {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					/*color:#566772;*/
-					/*color:#474B69;*/
-					color:#5A78AF;
-					text-align:left;
-					font-weight: bold; 
-					font-size:12px;
-					display:inline;
-					
-					}
-					
-					.translation_other {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					color:#187C96;
-					text-align:left;
-					font-weight: bold;
-					font-size:12px; 
-					display:inline;
-					}
-					.word                     { 
-					border-collapse: separate ;
-					display: inline;
-					vertical-align:middle;
-					text-align:left;
-					
-					
-					}
-					
-					.word_tab                     { 
-					vertical-align:middle;
-					text-align:left;
-					display:inline;
-					
-					}
-					.word_form {
-					/*background-color:#FEF1D4;*/
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					font-weight: bold; 
-					text-align:left;
-					font-size:15px;
-					
-					
-					
-					
-					}
-					.word_transl {
-					font-family:'caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*background-color:#FEF1D4;*/
-					color:#5F5F5F;	
-					text-align:left;
-					
-					
-					}
-					.transcription {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_phono {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_ortho {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_phone {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_translit {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.note_info {
-					font-family:sans-serif,'caslon','Arial Unicode MS','Lucida sans unicode','Code2000';
-					text-align:left;
-					font-weight:bold; 
-					font-size:11px;
-					color:#000;
-					
-					display:none;
-					
-					}
-					
-				</style>
+				<link href="../../styles.css" rel="stylesheet" type="text/css"/>
+
 			</head>
 			<body>
 				
-				<div style="margin-left: 5px;">
-						
-					<br/><br/>
-					
 			
-					
-					
-					
-					</div>
 				<!--<xsl:value-of select="$url_similarities"/>-->
 				
 				
 				
 				
-				<table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#993300" class="it">
+				<table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
 					<tbody>
-						<tr>
-							<td valign="top">
-								
-								<table>
-									<tr><th><xsl:value-of select="$f1_lang"/></th></tr>
-									<tr><th><xsl:value-of select="$f1_xml"/></th></tr>
+						<th align="left" bgcolor="#CCCCCC"><p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p></th>
+                 
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file1]">
+                
+           			 <xsl:call-template name="onesim">
+                   		<xsl:with-param name="file" select="$file1"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file1]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file1]/@title"/>
+           			</xsl:call-template>
+   	 			
+                </xsl:if>
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file2]">
+               
+           			 <xsl:call-template name="onesim">
+                   		<xsl:with-param name="file" select="$file2"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file2]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file2]/@title"/>
+           			</xsl:call-template>
+   	 			
+                </xsl:if>
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file3]">
+                
+           			 <xsl:call-template name="onesim">
+                   		<xsl:with-param name="file" select="$file3"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file3]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file3]/@title"/>
+           			</xsl:call-template>
+   	 			
+                </xsl:if>
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file4]">
+               
+           			 <xsl:call-template name="onesim">
+                   		<xsl:with-param name="file" select="$file4"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file4]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file4]/@title"/>
+           			</xsl:call-template>
+   	 		
+                </xsl:if>
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file5]">
+               
+           			 <xsl:call-template name="onesim">
+                   		<xsl:with-param name="file" select="$file5"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file5]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file5]/@title"/>
+           			</xsl:call-template>
+   	 		
+                </xsl:if>
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file6]">
+               
+           			 <xsl:call-template name="onesim">
+                   		<xsl:with-param name="file" select="$file6"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file6]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file6]/@title"/>
+           			</xsl:call-template>
+   	 			
+                </xsl:if>
+						   
+							
+					
+						
+						
+					</tbody>
+				</table>
+				   
+			</body>
+			</html>
+	</xsl:template>	
+	
+    
+      <xsl:template name="onesim">
+
+                                    <xsl:param name="file" select="''"/>
+                                    <xsl:param name="lang" select="''"/>
+                                    <xsl:param name="title" select="''"/>
+								<tr>
+                                <td valign="top">
+                                <table>
+                                
+                                <table border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
+									<tr><th align="left" style="font-size:18px"><i> <xsl:value-of select="document($filesim)//similarities/files/file[@xml=$file]/@title"/> story</i></th></tr>
+									<!--<tr><th align="left" style="font-size:13px">Language: <xsl:value-of select="document($filesim)//similarities/files/file[@xml=$file]/@lang"/>  </th></tr>-->
+                                </table>
 								<!--<xsl:call-template name="player-audio_wav_file1">
 									<xsl:with-param name="f1_sound" select="$f1_sound"/>
 									<xsl:with-param name="f1_xml" select="$f1_xml"/>
 								</xsl:call-template>-->
 								<!--PARTIE TRAITEMENT ET AFFICHAGE FILE1-->
 								    
-							<xsl:for-each select="document($f1_xml)//TEXT/S">
+							<xsl:for-each select="document($file)//TEXT/S">
 								<xsl:variable name="num_s" select="position()" />
 								<xsl:variable name="id_s" select="@id" />
 								
 								
 								
-									<xsl:if test="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f1_xml]/sentence[@id=$id_s]">
-										<xsl:variable name="num_sim" select="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f1_xml]/sentence"/>	
+									<xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file]/sentence[@id=$id_s]">
+										<xsl:variable name="num_sim" select="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file]/sentence"/>	
 										<tr>
 										<td class="segmentContent" width="600px" bgcolor="{$color}">
-											<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
-											Sentence <xsl:value-of select="$num_s"/><br/>
+											<br/>
+											<b><span style="background-color:#FDD9AC">Sentence <xsl:value-of select="$num_s"/></span></b>
 										
-											
+											<br/>
 											
 											<!--<a href="javascript:boutonStop()">
 												<img src="../outils/stop.gif" alt="stop"/>
@@ -381,47 +257,7 @@
 											<xsl:if test="(W/FORM and W/TRANSL) or (W/M/FORM and W/M/TRANSL) ">
 												
 												<xsl:for-each select="W">
-													<!--<div class="word_sentence" >
-														<xsl:value-of select="$word"/>
-														<xsl:choose>
-															
-															
-															<xsl:when test="FORM">
-																<xsl:if test="FORM=$word">
-																	<span style="background:pink"><xsl:value-of select="FORM"/></span>
-																</xsl:if>
-																<xsl:if test="FORM!=$word"><xsl:value-of select="FORM"/></xsl:if>
-																
-															</xsl:when>
-															<xsl:otherwise>
-																<xsl:choose>
-																	<xsl:when test="M/@class='i'">
-																		<i>         
-																			<xsl:for-each select="M/FORM">
-																				<xsl:if test="FORM=$word">
-																					<span style="background:pink"><xsl:value-of select="."/>
-																						<xsl:if test="position()!=last()">-</xsl:if></span>
-																				</xsl:if>
-																				<xsl:if test="FORM!=$word"><xsl:value-of select="."/>
-																					<xsl:if test="position()!=last()">-</xsl:if></xsl:if>
-																				
-																			</xsl:for-each>
-																			
-																		</i> 
-																	</xsl:when>
-																	<xsl:otherwise>  
-																		<xsl:if test="FORM=$word">
-																			<span style="background:pink"><xsl:value-of select="M/FORM"/></span>
-																		</xsl:if>
-																		<xsl:if test="FORM!=$word"><xsl:value-of select="M/FORM"/></xsl:if>
-																	</xsl:otherwise>
-																</xsl:choose>
-															</xsl:otherwise>
-															
-															
-															
-														</xsl:choose>
-													</div>	-->
+													
 													
 													<table class="word">
 														<tbody>
@@ -573,7 +409,7 @@
 													</div>
 													
 												</xsl:for-each>
-												
+												<br/>
 											</xsl:if>
 											
 										</td>
@@ -591,647 +427,12 @@
 							</xsl:for-each>
 								</table>
 							</td>
-							
-						</tr>
-						<tr>
-							
-							<td valign="top">
-								
-								<table border="0">
-									<tr><th align="center"><xsl:value-of select="$f2_lang"/></th></tr>
-									<tr><th align="center"><xsl:value-of select="$f2_xml"/></th></tr>
-									<!--<xsl:call-template name="player-audio_wav_file1">
-										<xsl:with-param name="f1_sound" select="$f1_sound"/>
-										<xsl:with-param name="f1_xml" select="$f1_xml"/>
-										</xsl:call-template>-->
-									<!--PARTIE TRAITEMENT ET AFFICHAGE FILE2-->
-									
-									<xsl:for-each select="document($f2_xml)//TEXT/S">
-										<xsl:variable name="num_s" select="position()" />
-										<xsl:variable name="id_s" select="@id" />
-										
-											
-											
-											<xsl:if test="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f2_xml]/sentence[@id=$id_s]">
-												<xsl:variable name="num_sim" select="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f2_xml]/sentence"/>	
-												<tr>
-												<td class="segmentContent" width="600px" bgcolor="{$color}">
-													<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
-													Sentence <xsl:value-of select="$num_s"/><br/>
-													
-													
-													
-													<!--<a href="javascript:boutonStop()">
-														<img src="../outils/stop.gif" alt="stop"/>
-														</a>
-														<a href="javascript:playFrom('{position()}')">
-														<img src="../outils/play.gif" alt="écouter"/>
-														</a>-->
-													
-													
-													<!-- affiche le nom du locuteur si il y en a -->
-													<xsl:if test="((@who) and (not(@who='')) and (not(@who=ancestor::TEXT/S[number(position())-1]/@who)))">
-														<span class="speaker">
-															<xsl:value-of select="@who"/><xsl:text>: </xsl:text>
-														</span>
-													</xsl:if>
-													
-													
-													<!-- cas ou S contient la balise FORM -->
-													<xsl:if test="FORM">
-														<div class="word_sentence">
-															<!-- Recuperation de la phrase -->
-															<xsl:for-each select="FORM">
-																<xsl:choose>
-																	<xsl:when test="@kindOf">
-																		<xsl:if test="@kindOf='phono'">
-																			<div class="transcription_phono">
-																				<xsl:value-of select="."/>
-																			</div>
-																			
-																		</xsl:if>
-																		<xsl:if test="@kindOf='ortho'">
-																			<div class="transcription_ortho">
-																				<xsl:value-of select="."/>
-																			</div>
-																			
-																		</xsl:if>
-																		<xsl:if test="@kindOf='phone'">
-																			<div class="transcription_phone">
-																				<xsl:value-of select="."/>
-																			</div>
-																			
-																		</xsl:if>
-																		<xsl:if test="@kindOf='transliter'">
-																			<div class="transcription_translit">
-																				<xsl:value-of select="."/>
-																			</div>
-																			
-																		</xsl:if>
-																	</xsl:when>
-																	<xsl:otherwise>
-																		<div class="transcription">
-																			<xsl:value-of select="."/>
-																		</div>
-																	</xsl:otherwise>
-																</xsl:choose>
-																
-																<br />
-															</xsl:for-each>
-														</div>
-														
-														
-													</xsl:if>
-													
-													
-													<!-- Cas ou W ou M contiennent la balise FORM et ou S ne contient pas la balise FORM -->
-													<xsl:if test="not(FORM) and (W/FORM or W/M/FORM)">
-														
-														
-														
-														<!-- Recuperation des mots ou morphemes puis concatenation pour former une phrase --> 
-														<xsl:for-each select="W">
-															
-															
-															
-															<div class="word_sentence" >
-																<xsl:choose>
-																	
-																	
-																	<xsl:when test="FORM">
-																		<xsl:value-of select="FORM"/>
-																	</xsl:when>
-																	<xsl:otherwise>
-																		<xsl:choose>
-																			<xsl:when test="M/@class='i'">
-																				<i>         
-																					<xsl:for-each select="M/FORM">
-																						<xsl:value-of select="."/>
-																						<xsl:if test="position()!=last()">-</xsl:if>
-																					</xsl:for-each>
-																					
-																				</i> 
-																			</xsl:when>
-																			<xsl:otherwise>  <xsl:value-of select="M/FORM"/>  </xsl:otherwise>
-																		</xsl:choose>
-																	</xsl:otherwise>
-																	
-																	
-																	
-																</xsl:choose>
-															</div>
-															
-															
-															
-														</xsl:for-each>
-														
-														
-														
-													</xsl:if>
-													
-													<br />
-													
-													
-												
-													
-													<!-- Recupere les mots avec leur glose -->
-													<xsl:if test="(W/FORM and W/TRANSL) or (W/M/FORM and W/M/TRANSL) ">
-														
-														<xsl:for-each select="W">
-															
-															
-															<table class="word">
-																<tbody>
-																	<tr>
-																		<td class="word_form">
-																			
-																			
-																			<xsl:choose>
-																				
-																				<xsl:when test="not(FORM)">
-																					<xsl:choose>
-																						<xsl:when test="M/@class='i'">
-																							<i>
-																								<xsl:for-each select="M">
-																									<xsl:if test="FORM=$mot">
-																										<span style="background:pink"><xsl:value-of select="FORM"/>
-																											<xsl:if test="position()!=last()">-</xsl:if></span>
-																									</xsl:if>
-																									<xsl:if test="FORM!=$mot"><xsl:value-of select="FORM"/>
-																										<xsl:if test="position()!=last()">-</xsl:if></xsl:if>
-																									
-																								</xsl:for-each>
-																								
-																							</i>
-																						</xsl:when>
-																						<xsl:otherwise>  
-																							
-																							<xsl:for-each select="M">
-																								<xsl:if test="FORM = $mot">
-																									<span style="background:pink"><xsl:value-of select="FORM"/>
-																										<xsl:if test="position()!=last()">-</xsl:if></span>
-																								</xsl:if>
-																								<xsl:if test="FORM!=$mot"><xsl:value-of select="FORM"/>
-																									<xsl:if test="position()!=last()">-</xsl:if></xsl:if>
-																								
-																							</xsl:for-each>
-																							
-																						</xsl:otherwise>
-																					</xsl:choose>
-																				</xsl:when>
-																				
-																				<xsl:otherwise >
-																					<xsl:if test="FORM = $mot">
-																						<span style="background:pink"><xsl:value-of select="FORM"/></span>
-																					</xsl:if>
-																					<xsl:if test="FORM!=$mot"><xsl:value-of select="FORM"/></xsl:if>
-																				</xsl:otherwise>
-																			</xsl:choose>
-																		</td>
-																	</tr>
-																	<tr>
-																		
-																		<td class="word_transl">
-																			
-																			
-																			<xsl:choose>
-																				<xsl:when test="M/TRANSL[@xml:lang or @lang] or TRANSL[@xml:lang or @lang]">
-																					
-																					
-																					<xsl:if test="M/TRANSL[@xml:lang='en' or @lang='en']">
-																						<xsl:for-each select="M/TRANSL[@xml:lang='en' or @lang='en']">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																					</xsl:if>
-																					<xsl:if test="M/TRANSL[@xml:lang='fr']">
-																						<xsl:for-each select="M/TRANSL[@xml:lang='fr' or @lang='fr']">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																					</xsl:if>
-																					
-																					<xsl:if test="not(M/TRANSL[@xml:lang='en' or @lang='en']) and not(M/TRANSL[@xml:lang='fr' or @lang='fr'])">
-																						<xsl:for-each select="M/TRANSL">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																						
-																					</xsl:if>
-																					
-																					
-																					<xsl:if test="TRANSL[@xml:lang='en' or @lang='en']">
-																						<xsl:value-of select="TRANSL[@xml:lang='en' or @lang='en']"/>
-																						
-																					</xsl:if>
-																					<xsl:if test="TRANSL[@xml:lang='fr' or @lang='fr']">
-																						<xsl:value-of select="TRANSL[@xml:lang='fr' or @lang='fr']"/>
-																						
-																					</xsl:if>
-																					<xsl:if test="not(TRANSL[@xml:lang='en' or @lang='en']) and not(TRANSL[@xml:lang='fr' or @lang='fr'])">
-																						<xsl:for-each select="TRANSL">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																					</xsl:if>
-																				</xsl:when>
-																				<xsl:otherwise>
-																					<xsl:if test="M/TRANSL">
-																						<xsl:for-each select="M/TRANSL[1]">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																					</xsl:if>
-																					<xsl:if test="TRANSL">
-																						<xsl:value-of select="TRANSL[1]"/>
-																						
-																					</xsl:if>
-																				</xsl:otherwise>
-																			</xsl:choose>
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-															
-														</xsl:for-each>
-														
-														
-													</xsl:if>
-													
-													
-													<br/><br/>
-													<xsl:if test="TRANSL">
-														
-														<!-- Recupere la traduction si il en existe une -->
-														
-														
-														
-														<xsl:for-each select="TRANSL[@xml:lang='en' or @lang='en']">
-															<div class="translation_en">
-																<xsl:value-of select="."/><br />
-															</div>
-														</xsl:for-each> 
-														
-														<xsl:for-each select="TRANSL[@xml:lang='fr' or @lang='fr']">
-															<div class="translation_fr">
-																<xsl:value-of select="."/><br />
-															</div>
-														</xsl:for-each> 
-														
-														
-														<xsl:for-each select="TRANSL[(@xml:lang!='fr' or @lang!='fr') and (@xml:lang!='en' or @lang!='fr')]">
-															<div class="translation_other">
-																<xsl:value-of select="."/><br />
-															</div>
-															
-														</xsl:for-each>
-														
-													</xsl:if>
-													
-												</td>
-												
-												
-												</tr>
-												
-												
-											</xsl:if>
-											
-											
-											
-											
-										
-									</xsl:for-each>
-								</table>
-							</td>
-							
-						</tr>
-						<tr>
-							
-							<td valign="top">
-								
-								<table border="0">
-									<tr><th align="center"><xsl:value-of select="$f3_lang"/></th></tr>
-									<tr><th align="center"><xsl:value-of select="$f3_xml"/></th></tr>
-									<!--<xsl:call-template name="player-audio_wav_file1">
-										<xsl:with-param name="f1_sound" select="$f1_sound"/>
-										<xsl:with-param name="f1_xml" select="$f1_xml"/>
-										</xsl:call-template>-->
-									<!--PARTIE TRAITEMENT ET AFFICHAGE FILE3-->
-									
-									<xsl:for-each select="document($f3_xml)//TEXT/S">
-										<xsl:variable name="num_s" select="position()" />
-										<xsl:variable name="id_s" select="@id" />
-										
-											
-											
-											<xsl:if test="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f3_xml]/sentence[@id=$id_s]">
-												<xsl:variable name="num_sim" select="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f3_xml]/sentence"/>	
-												<tr>
-												<td class="segmentContent" width="600px" bgcolor="{$color}">
-													<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
-													Sentence <xsl:value-of select="$num_s"/><br/>
-													
-													
-													
-													<!--<a href="javascript:boutonStop()">
-														<img src="../outils/stop.gif" alt="stop"/>
-														</a>
-														<a href="javascript:playFrom('{position()}')">
-														<img src="../outils/play.gif" alt="écouter"/>
-														</a>-->
-													
-													
-													<!-- affiche le nom du locuteur si il y en a -->
-													<xsl:if test="((@who) and (not(@who='')) and (not(@who=ancestor::TEXT/S[number(position())-1]/@who)))">
-														<span class="speaker">
-															<xsl:value-of select="@who"/><xsl:text>: </xsl:text>
-														</span>
-													</xsl:if>
-													
-													
-													<!-- cas ou S contient la balise FORM -->
-													<xsl:if test="FORM">
-														<div class="word_sentence">
-															<!-- Recuperation de la phrase -->
-															<xsl:for-each select="FORM">
-																<xsl:choose>
-																	<xsl:when test="@kindOf">
-																		<xsl:if test="@kindOf='phono'">
-																			<div class="transcription_phono">
-																				<xsl:value-of select="."/>
-																			</div>
-																			
-																		</xsl:if>
-																		<xsl:if test="@kindOf='ortho'">
-																			<div class="transcription_ortho">
-																				<xsl:value-of select="."/>
-																			</div>
-																			
-																		</xsl:if>
-																		<xsl:if test="@kindOf='phone'">
-																			<div class="transcription_phone">
-																				<xsl:value-of select="."/>
-																			</div>
-																			
-																		</xsl:if>
-																		<xsl:if test="@kindOf='transliter'">
-																			<div class="transcription_translit">
-																				<xsl:value-of select="."/>
-																			</div>
-																			
-																		</xsl:if>
-																	</xsl:when>
-																	<xsl:otherwise>
-																		<div class="transcription">
-																			<xsl:value-of select="."/>
-																		</div>
-																	</xsl:otherwise>
-																</xsl:choose>
-																
-																<br />
-															</xsl:for-each>
-														</div>
-														
-														
-													</xsl:if>
-													
-													
-													<!-- Cas ou W ou M contiennent la balise FORM et ou S ne contient pas la balise FORM -->
-													<xsl:if test="not(FORM) and (W/FORM or W/M/FORM)">
-														
-														
-														
-														<!-- Recuperation des mots ou morphemes puis concatenation pour former une phrase --> 
-														<xsl:for-each select="W">
-															
-															
-															
-															<div class="word_sentence" >
-																<xsl:choose>
-																	
-																	
-																	<xsl:when test="FORM">
-																		<xsl:value-of select="FORM"/>
-																	</xsl:when>
-																	<xsl:otherwise>
-																		<xsl:choose>
-																			<xsl:when test="M/@class='i'">
-																				<i>         
-																					<xsl:for-each select="M/FORM">
-																						<xsl:value-of select="."/>
-																						<xsl:if test="position()!=last()">-</xsl:if>
-																					</xsl:for-each>
-																					
-																				</i> 
-																			</xsl:when>
-																			<xsl:otherwise>  <xsl:value-of select="M/FORM"/>  </xsl:otherwise>
-																		</xsl:choose>
-																	</xsl:otherwise>
-																	
-																	
-																	
-																</xsl:choose>
-															</div>
-															
-															
-															
-														</xsl:for-each>
-														
-														
-														
-													</xsl:if>
-													
-													<br />
-													
-													
-													
-													<!-- Recupere les mots avec leur glose -->
-													<xsl:if test="(W/FORM and W/TRANSL) or (W/M/FORM and W/M/TRANSL) ">
-														
-														<xsl:for-each select="W">
-															
-															
-															<table class="word">
-																<tbody>
-																	<tr>
-																		<td class="word_form">
-																			
-																			
-																			<xsl:choose>
-																				
-																				<xsl:when test="not(FORM)">
-																					<xsl:choose>
-																						<xsl:when test="M/@class='i'">
-																							<i>
-																								<xsl:for-each select="M">
-																									<xsl:if test="FORM=$mot">
-																										<span style="background:pink"><xsl:value-of select="FORM"/>
-																											<xsl:if test="position()!=last()">-</xsl:if></span>
-																									</xsl:if>
-																									<xsl:if test="FORM!=$mot"><xsl:value-of select="FORM"/>
-																										<xsl:if test="position()!=last()">-</xsl:if></xsl:if>
-																									
-																								</xsl:for-each>
-																								
-																							</i>
-																						</xsl:when>
-																						<xsl:otherwise>  
-																							
-																							<xsl:for-each select="M">
-																								<xsl:if test="FORM = $mot">
-																									<span style="background:pink"><xsl:value-of select="FORM"/>
-																										<xsl:if test="position()!=last()">-</xsl:if></span>
-																								</xsl:if>
-																								<xsl:if test="FORM!=$mot"><xsl:value-of select="FORM"/>
-																									<xsl:if test="position()!=last()">-</xsl:if></xsl:if>
-																								
-																							</xsl:for-each>
-																							
-																						</xsl:otherwise>
-																					</xsl:choose>
-																				</xsl:when>
-																				
-																				<xsl:otherwise >
-																					<xsl:if test="FORM = $mot">
-																						<span style="background:pink"><xsl:value-of select="FORM"/></span>
-																					</xsl:if>
-																					<xsl:if test="FORM!=$mot"><xsl:value-of select="FORM"/></xsl:if>
-																				</xsl:otherwise>
-																			</xsl:choose>
-																		</td>
-																	</tr>
-																	<tr>
-																		
-																		<td class="word_transl">
-																			
-																			
-																			<xsl:choose>
-																				<xsl:when test="M/TRANSL[@xml:lang or @lang] or TRANSL[@xml:lang or @lang]">
-																					
-																					
-																					<xsl:if test="M/TRANSL[@xml:lang='en' or @lang='en']">
-																						<xsl:for-each select="M/TRANSL[@xml:lang='en' or @lang='en']">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																					</xsl:if>
-																					<xsl:if test="M/TRANSL[@xml:lang='fr']">
-																						<xsl:for-each select="M/TRANSL[@xml:lang='fr' or @lang='fr']">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																					</xsl:if>
-																					
-																					<xsl:if test="not(M/TRANSL[@xml:lang='en' or @lang='en']) and not(M/TRANSL[@xml:lang='fr' or @lang='fr'])">
-																						<xsl:for-each select="M/TRANSL">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																						
-																					</xsl:if>
-																					
-																					
-																					<xsl:if test="TRANSL[@xml:lang='en' or @lang='en']">
-																						<xsl:value-of select="TRANSL[@xml:lang='en' or @lang='en']"/>
-																						
-																					</xsl:if>
-																					<xsl:if test="TRANSL[@xml:lang='fr' or @lang='fr']">
-																						<xsl:value-of select="TRANSL[@xml:lang='fr' or @lang='fr']"/>
-																						
-																					</xsl:if>
-																					<xsl:if test="not(TRANSL[@xml:lang='en' or @lang='en']) and not(TRANSL[@xml:lang='fr' or @lang='fr'])">
-																						<xsl:for-each select="TRANSL">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																					</xsl:if>
-																				</xsl:when>
-																				<xsl:otherwise>
-																					<xsl:if test="M/TRANSL">
-																						<xsl:for-each select="M/TRANSL[1]">
-																							<xsl:value-of select="."/>
-																							<xsl:if test="position()!=last()">-</xsl:if>
-																						</xsl:for-each>
-																						
-																					</xsl:if>
-																					<xsl:if test="TRANSL">
-																						<xsl:value-of select="TRANSL[1]"/>
-																						
-																					</xsl:if>
-																				</xsl:otherwise>
-																			</xsl:choose>
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-															
-														</xsl:for-each>
-														
-														
-													</xsl:if>
-													
-													<br/><br/>
-													<xsl:if test="TRANSL">
-														
-														<!-- Recupere la traduction si il en existe une -->
-														
-														
-														
-														<xsl:for-each select="TRANSL[@xml:lang='en' or @lang='en']">
-															<div class="translation_en">
-																<xsl:value-of select="."/><br />
-															</div>
-														</xsl:for-each> 
-														
-														<xsl:for-each select="TRANSL[@xml:lang='fr' or @lang='fr']">
-															<div class="translation_fr">
-																<xsl:value-of select="."/><br />
-															</div>
-														</xsl:for-each> 
-														
-														
-														<xsl:for-each select="TRANSL[(@xml:lang!='fr' or @lang!='fr') and (@xml:lang!='en' or @lang!='fr')]">
-															<div class="translation_other">
-																<xsl:value-of select="."/><br />
-															</div>
-															
-														</xsl:for-each>
-														
-													</xsl:if>
-													
-													
-												</td>
-												
-												
-												</tr>	
-												
-												
-											</xsl:if>
-												
-										
-									</xsl:for-each>
-								</table>
-							</td>
-							
-							
-							
-						</tr>		
-					</tbody>
-				</table>
-				
-			</body>
-			</html>
-	</xsl:template>	
-	
+                            
+                            </tr>
+                            
+                            
+                            </xsl:template>
+                
 
 	<xsl:template name="player-audio_wav_file1">
 		<xsl:param name="f1_sound" select="$f1_sound"/>

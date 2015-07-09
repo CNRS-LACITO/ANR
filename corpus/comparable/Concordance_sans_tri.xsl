@@ -273,7 +273,7 @@
 											
 											
 											
-											<xsl:for-each select="document('SIMILARITIES.xml')//similarities/files/file/@xml">
+											<xsl:for-each select="document('orphans.xml')//similarities/files/file/@xml">
 												
 										
 												
@@ -329,10 +329,10 @@
 																		
 																		
 																	</td>
-																	<xsl:value-of select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]"/>
+																	<xsl:value-of select="document('orphans.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]"/>
 																	
-																	<xsl:variable name="similarity" select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]/parent::node()/parent::node()/@id"/>
-																	<xsl:variable name="color" select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]/parent::node()/parent::node()/color"/>				
+																	<xsl:variable name="similarity" select="document('orphans.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]/parent::node()/parent::node()/@id"/>
+																	<xsl:variable name="color" select="document('orphans.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]/parent::node()/parent::node()/color"/>				
 																	
 																	
 																	<td bgcolor="grey"><a href="#" onClick="window.open('ViewOneSimilarity.php?similarity={$similarity}&amp;color={$color}&amp;file={$fi}&amp;sentence={$id_s}&amp;mot={$mot}','Fiche','toolbar=no,status=no,width=900 ,height=600,scrollbars=yes,location=no,resize=yes,menubar=yes')">
@@ -414,10 +414,10 @@
 																		
 																	</td>
 																	
-																	<xsl:value-of select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]"/>
+																	<xsl:value-of select="document('orphans.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]"/>
 																	
-																	<xsl:variable name="similarity" select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]/parent::node()/parent::node()/@id"/>
-																	<xsl:variable name="color" select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]/parent::node()/parent::node()/color"/>				
+																	<xsl:variable name="similarity" select="document('orphans.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]/parent::node()/parent::node()/@id"/>
+																	<xsl:variable name="color" select="document('orphans.xml')//similarities/similarity/file[@id=$fi]/sentence[@id=$id_s]/parent::node()/parent::node()/color"/>				
 																	
 																	
 																	<td bgcolor="grey"><a href="#" onClick="window.open('ViewOneSimilarity.php?similarity={$similarity}&amp;color={$color}&amp;file={$fi}&amp;sentence={$id_s}&amp;mot={$mot}','Fiche','toolbar=no,status=no,width=900 ,height=600,scrollbars=yes,location=no,resize=yes,menubar=yes')">

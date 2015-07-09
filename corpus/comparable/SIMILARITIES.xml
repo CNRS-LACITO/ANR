@@ -1,11 +1,11 @@
 <similarities>
 <files>
-<file xml="annotations/crdo-TDH_KAKCILIP.xml" lang="Thulung" sound="Kakcilip.wav"/>
-<file xml="annotations/crdo-KKT_ORIGIN.xml" lang="Koyi" sound="Origin.wav"/>
-<file xml="annotations/crdo-KLR_KHAKTSALOP.xml" lang="Khaling" sound="Khaktsalop.wav"/>
-<!--<file xml="annotations/crdo-TDH_KAKCILIP_FAUX.xml" lang="Thulung" sound="Kakcilip.wav"/>
-<file xml="annotations/crdo-KKT_ORIGIN_FAUX.xml" lang="Koyi" sound="Origin.wav"/>
-<file xml="annotations/crdo-KLR_KHAKTSALOP_FAUX.xml" lang="Khaling" sound="Khaktsalop.wav"/>-->
+<file xml="annotations/crdo-TDH_KAKCILIP.xml" lang="Thulung" sound="Kakcilip.wav" title="Kakcilip"/>
+<file xml="annotations/crdo-KKT_ORIGIN.xml" lang="Koyi" sound="Origin.wav" title="Origin"/>
+<file xml="annotations/crdo-KLR_KHAKTSALOP.xml" lang="Khaling" sound="Khaktsalop.wav" title="Khaktsalop"/>
+<!--<file xml="annotations/crdo-TDH_KAKCILIP_FAUX.xml" lang="Thulung" sound="Kakcilip.wav" title="Kakcilip"/>
+<file xml="annotations/crdo-KKT_ORIGIN_FAUX.xml" lang="Koyi" sound="Origin.wav" title="Origin"/>
+<file xml="annotations/crdo-KLR_KHAKTSALOP_FAUX.xml" lang="Khaling" sound="Khaktsalop.wav title="Khaktsalop""/>-->
 </files>
 <similarity id="1">
 <color>#EAF7FB</color>

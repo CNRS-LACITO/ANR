@@ -56,18 +56,41 @@ a:active {
 	
 	
 	<?php
+		error_reporting(0);
 		
 	  $similarity=  isset($_GET["similarity"])    ? $_GET["similarity"]    : "*";
 	  $trans=  "ShowAllSimilarities.xsl";
 	  
+$files = array(); 	  
 	
+if (isset($_POST['orphans'])) {
+	$similarity="orphans.xml";
+	 $i=0;
 foreach($_POST['orphans'] as $valeur)
 {
-   echo "La checkbox $valeur a été cochée<br>";
+   $file[$i]=$valeur;
+   $i++;
+}
+$nbsim=$i;
 }
 
+
+
+/*echo $similarity;*/
+
+/*echo "1 $file[0]";
+echo "2 $file[1]";*/
+
+$file1=$file[0];
+$file2=$file[1];
+$file3=$file[2];
+$file4=$file[3];
+$file5=$file[4];
+$file6=$file[5];
+
+
 					
-		ViewSimilarities($similarity, $trans);
+		ViewSimilarities($similarity, $trans, $nbsim, $file1, $file2, $file3, $file4, $file5, $file6);
 					
 	
 
@@ -75,14 +98,22 @@ foreach($_POST['orphans'] as $valeur)
 
 
 
-function ViewSimilarities($similarity, $trans) {
+function ViewSimilarities($similarity, $trans, $nbsim, $file1, $file2, $file3, $file4, $file5, $file6) {
 	
 			  $xp = new XsltProcessor();
 			  $xsl = new DomDocument;
 		
 			  $xsl->load($trans);
 			  
-			  $xp->setParameter('', 'similarity', $similarity);
+			  $xp->setParameter('', 'filesim', $similarity);
+			  $xp->setParameter('', 'nbsim', $nbsim);
+			  $xp->setParameter('', 'file1', $file1);
+			  $xp->setParameter('', 'file2', $file2);
+			  $xp->setParameter('', 'file3', $file3);
+			  $xp->setParameter('', 'file4', $file4);
+			  $xp->setParameter('', 'file5', $file5);
+			  $xp->setParameter('', 'file6', $file6);
+
 			 
 			  // import the XSL styelsheet into the XSLT process
 			  $xp->importStylesheet($xsl);
@@ -109,7 +140,7 @@ function ViewSimilarities($similarity, $trans) {
 <table width="1200" height="30" align="center">
   <tr>
   
-    <td width="1200" height="30" align="center"><b>Les corpus et dictionnaires ont &eacute;t&eacute; compil&eacute;s avec l'aide financi&egrave;re de l'ANR.</b></td>
+    <td width="1200" height="30" align="center"><b>Corpus and dictionaries compiled thanks to funding by the ANR.</b></td>
   </tr>
   <tr>
     <td width="1200" align="center"><img src="../../images/logos/ANR.gif"></td>

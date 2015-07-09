@@ -29,7 +29,7 @@ function CreateConcordance($concordance, $tri) {
 			// create a DOM document and load the XML datat
 			  $xml_doc = new DomDocument;
 			  //$xml_doc->load('http://lacito.vjf.cnrs.fr/archivage/tools/metadata_lacito.xml');
-			  $xml_doc->load('SIMILARITIES.xml');
+			  $xml_doc->load('orphans.xml');
 
 
 			  // transform the XML into HTML using the XSL file

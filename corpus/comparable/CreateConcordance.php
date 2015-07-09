@@ -48,7 +48,7 @@ a:active {
 <!-- Body -->
 <table width="1200" height="700" align="center" class="fond">
   <tr>
-    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p> <a href="ViewAllSimilarities.php?similarity=SIMILARITIES.xml"><span style="color:#30F"><b>Retour à l'affichage du corpus complet</b></span></a> </p>
+    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p> <a href="ViewAllSimilarities.php?similarity=orphans.xml"><span style="color:#30F"><b>Retour à l'affichage du corpus complet</b></span></a> </p>
       <?php
 		
 		set_time_limit(0); 
@@ -122,7 +122,7 @@ function CreateConcordance($concordance, $tri) {
 <!-- Footer -->
 <table width="1200" height="30" align="center">
   <tr>
-    <td width="1200" height="30" align="center"><b>Les corpus et dictionnaires ont &eacute;t&eacute; compil&eacute;s avec l'aide financi&egrave;re de l'ANR.</b></td>
+    <td width="1200" height="30" align="center"><b>Corpus and dictionaries compiled thanks to funding by the ANR.</b></td>
   </tr>
   <tr>
     <td width="1200" align="center"><img src="../../images/logos/ANR.gif"></td>

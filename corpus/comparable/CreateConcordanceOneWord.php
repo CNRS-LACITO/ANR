@@ -48,7 +48,7 @@ a:active {
 <!-- Body -->
 <table width="1200" height="700" align="center" class="fond">
   <tr>
-    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p> <a href="ViewAllSimilarities.php?similarity=SIMILARITIES.xml"><span style="color:#30F"><b>Back to selected corpus</b></span></a> </p>
+    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p> <a href="ViewAllSimilarities.php?similarity=orphans.xml"><span style="color:#30F"><b>Back to selected corpus</b></span></a> </p>
       <?php
 		
 	  set_time_limit(0); 
@@ -79,7 +79,7 @@ function CreateConcordanceOneWord($mot) {
 			// create a DOM document and load the XML data
 			  $xml_doc = new DomDocument;
 			  //$xml_doc->load('http://lacito.vjf.cnrs.fr/archivage/tools/metadata_lacito.xml');
-			 $xml_doc->load('SIMILARITIES.xml');
+			 $xml_doc->load('orphans.xml');
 
 			  
 			  if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Firefox' ) !== FALSE ) { $navigator="Firefox"; }
@@ -120,7 +120,7 @@ function CreateConcordanceOneWord($mot) {
 <!-- Footer -->
 <table width="1200" height="30" align="center">
   <tr>
-    <td width="1200" height="30" align="center"><b>Les corpus et dictionnaires ont &eacute;t&eacute; compil&eacute;s avec l'aide financi&egrave;re de l'ANR.</b></td>
+    <td width="1200" height="30" align="center"><b>Corpus and dictionaries compiled thanks to funding by the ANR.</b></td>
   </tr>
   <tr>
     <td width="1200" align="center"><img src="../../images/logos/ANR.gif"></td>

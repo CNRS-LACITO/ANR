@@ -34,7 +34,7 @@
 												<th align="center">contexte droit</th>
 												<th align="center">Gloses</th>
 											</tr>-->
-											<xsl:for-each select="document('SIMILARITIES.xml')//similarities/files/file/@xml">
+											<xsl:for-each select="document('orphans.xml')//similarities/files/file/@xml">
 												<xsl:variable name="fi" select="." />
 											<xsl:for-each select="document($fi)//TEXT/S">
 											

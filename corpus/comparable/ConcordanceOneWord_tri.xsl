@@ -292,10 +292,10 @@
 													<td><xsl:value-of select="num_phrase"/></td>	
 													<td align="right" class="all_form"><xsl:value-of select="mot_gauche"/></td>
 					
-													<xsl:value-of select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]"/>
-														<xsl:variable name="num_sim" select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/@id"/>
-														<xsl:variable name="similarity" select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/@id"/>
-														<xsl:variable name="color" select="document('SIMILARITIES.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/color"/>				
+													<xsl:value-of select="document('orphans.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]"/>
+														<xsl:variable name="num_sim" select="document('orphans.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/@id"/>
+														<xsl:variable name="similarity" select="document('orphans.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/@id"/>
+														<xsl:variable name="color" select="document('orphans.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/color"/>				
 													<xsl:variable name="mot" select="mot_cours"/>
 													
 													

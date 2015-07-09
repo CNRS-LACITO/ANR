@@ -254,8 +254,8 @@
 								
 								
 								
-									<xsl:if test="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f1_xml]/sentence[@id=$id_s]">
-										<xsl:variable name="num_sim" select="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f1_xml]/sentence"/>	
+									<xsl:if test="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f1_xml]/sentence[@id=$id_s]">
+										<xsl:variable name="num_sim" select="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f1_xml]/sentence"/>	
 										<tr>
 										<td class="segmentContent" width="600px" bgcolor="{$color}">
 											<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
@@ -556,8 +556,8 @@
 										
 											
 											
-											<xsl:if test="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f2_xml]/sentence[@id=$id_s]">
-												<xsl:variable name="num_sim" select="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f2_xml]/sentence"/>	
+											<xsl:if test="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f2_xml]/sentence[@id=$id_s]">
+												<xsl:variable name="num_sim" select="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f2_xml]/sentence"/>	
 												<tr>
 												<td class="segmentContent" width="600px" bgcolor="{$color}">
 													<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
@@ -859,8 +859,8 @@
 										
 											
 											
-											<xsl:if test="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f3_xml]/sentence[@id=$id_s]">
-												<xsl:variable name="num_sim" select="document('SIMILARITIES.xml')//similarities/similarity[@id=$similarity]/file[@id=$f3_xml]/sentence"/>	
+											<xsl:if test="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f3_xml]/sentence[@id=$id_s]">
+												<xsl:variable name="num_sim" select="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f3_xml]/sentence"/>	
 												<tr>
 												<td class="segmentContent" width="600px" bgcolor="{$color}">
 													<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
