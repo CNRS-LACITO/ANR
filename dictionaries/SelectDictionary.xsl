@@ -134,110 +134,110 @@
           <p>Ce travail a été financé par le projet ANR HimalCo (ANR-12-CORP-0006) et est en
             relation avec le projet de recherche LR-4.11 ‘‘Automatic Paradigm Generation and
             Language Description’’ du Labex EFL (fondé par l'ANR/CGI)</p>
+          <!-- Bibliography -->
+          <div class="content">
+            <h3>Bibliographie</h3>
+            <dl>
+              <dt class="Key" id="jacques08">jacques08</dt>
+              <dd class="Pub">
+                <span class="Title">{J}iarongyu yanjiu <span class="national">嘉絨語研究</span> ({S}tudy
+                  on the {R}gyalrong language)</span><br/>
+                <span class="Author">G. Jacques</span><br/>
+                <span class="Journal"/>
+                <span class="Volume"/>
+                <span class="Pages"/> (<span class="Date">2008</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="jacques10gesar">jacques10gesar</dt>
+              <dd class="Pub">
+                <span class="Title">{U}ne version rgyalrong de l'épopée de {G}esar</span><br/>
+                <span class="Author">G. Jacques and Z. Chen</span><br/>
+                <span class="Journal"/>
+                <span class="Volume"/>
+                <span class="Pages">332</span> (<span class="Date">2010</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="michailovsky14pangloss">michailovsky14pangloss</dt>
+              <dd class="Pub">
+                <span class="Title">{D}ocumenting and researching endangered languages: the
+                  {P}angloss {C}ollection</span><br/>
+                <span class="Author">B. Michailovsky and M. Mazaudon and A. Michaud and S. Guillaume
+                  and A. François and E. Adamou</span><br/>
+                <span class="Journal">Language Documentation and Conservation</span>
+                <span class="Volume">8</span>
+                <span class="Pages">119–135</span> (<span class="Date">2014</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="japhug14ideophones">japhug14ideophones</dt>
+              <dd class="Pub">
+                <span class="Title">{I}deophones in {J}aphug {R}gyalrong</span><br/>
+                <span class="Author">G. Jacques</span><br/>
+                <span class="Journal">Anthropological Linguistics</span>
+                <span class="Volume">55.3</span>
+                <span class="Pages">256-287</span> (<span class="Date">2013</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="jacques14linking">jacques14linking</dt>
+              <dd class="Pub">
+                <span class="Title">{C}lause linking in {J}aphug {R}gyalrong</span><br/>
+                <span class="Author">G. Jacques</span><br/>
+                <span class="Journal">Linguistics of the Tibeto-Burman Area</span>
+                <span class="Volume">37.2</span>
+                <span class="Pages">263-327</span> (<span class="Date">2014</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="jacques12incorp">jacques12incorp</dt>
+              <dd class="Pub">
+                <span class="Title">{F}rom denominal derivation to incorporation</span><br/>
+                <span class="Author">G. Jacques</span><br/>
+                <span class="Journal">Lingua</span>
+                <span class="Volume">122.11</span>
+                <span class="Pages">1207-1231</span> (<span class="Date">2012</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="jacques13tropative">jacques13tropative</dt>
+              <dd class="Pub">
+                <span class="Title">{A}pplicative and tropative derivations in {J}aphug
+                  {R}gyalrong</span><br/>
+                <span class="Author">G. Jacques</span><br/>
+                <span class="Journal">Linguistics of the Tibeto-Burman Area</span>
+                <span class="Volume">36.2</span>
+                <span class="Pages">1-13</span> (<span class="Date">2013</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="jacques14antipassive">jacques14antipassive</dt>
+              <dd class="Pub">
+                <span class="Title">{D}enominal affixes as sources of antipassive markers in
+                  {J}aphug {R}gyalrong</span><br/>
+                <span class="Author">G. Jacques</span><br/>
+                <span class="Journal">Lingua</span>
+                <span class="Volume">138</span>
+                <span class="Pages">1-22</span> (<span class="Date">2014</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="jacques15spontaneous">jacques15spontaneous</dt>
+              <dd class="Pub">
+                <span class="Title">{T}he spontaneous- autobenefactive prefix in {J}aphug
+                  {R}gyalrong</span><br/>
+                <span class="Author">G. Jacques</span><br/>
+                <span class="Journal">Linguistics of the Tibeto Burman Area</span>
+                <span class="Volume"/>
+                <span class="Pages"/> (<span class="Date">to appear</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+              <dt class="Key" id="jacques15causative">jacques15causative</dt>
+              <dd class="Pub">
+                <span class="Title">{T}he origin of the causative prefix in {R}gyalrong languages
+                  and its implication for proto-{S}ino-{T}ibetan reconstruction</span><br/>
+                <span class="Author">G. Jacques</span><br/>
+                <span class="Journal">Folia Linguistica Historica</span>
+                <span class="Volume"/>
+                <span class="Pages"/> (<span class="Date">to appear</span>)<br/>
+                <div class="Abstract"/>
+              </dd>
+            </dl>
+          </div>
         </xsl:if>
-        <!-- Bibliography -->
-        <div class="content">
-          <h3>Bibliographie</h3>
-          <dl>
-            <dt class="Key" id="jacques08">jacques08</dt>
-            <dd class="Pub">
-              <span class="Title">{J}iarongyu yanjiu <span class="national">嘉絨語研究</span> ({S}tudy on the {R}gyalrong
-                language)</span><br/>
-              <span class="Author">G. Jacques</span><br/>
-              <span class="Journal"/>
-              <span class="Volume"/>
-              <span class="Pages"/> (<span class="Date">2008</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="jacques10gesar">jacques10gesar</dt>
-            <dd class="Pub">
-              <span class="Title">{U}ne version rgyalrong de l'épopée de {G}esar</span><br/>
-              <span class="Author">G. Jacques and Z. Chen</span><br/>
-              <span class="Journal"/>
-              <span class="Volume"/>
-              <span class="Pages">332</span> (<span class="Date">2010</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="michailovsky14pangloss">michailovsky14pangloss</dt>
-            <dd class="Pub">
-              <span class="Title">{D}ocumenting and researching endangered languages: the {P}angloss
-                {C}ollection</span><br/>
-              <span class="Author">B. Michailovsky and M. Mazaudon and A. Michaud and S. Guillaume
-                and A. François and E. Adamou</span><br/>
-              <span class="Journal">Language Documentation and Conservation</span>
-              <span class="Volume">8</span>
-              <span class="Pages">119–135</span> (<span class="Date">2014</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="japhug14ideophones">japhug14ideophones</dt>
-            <dd class="Pub">
-              <span class="Title">{I}deophones in {J}aphug {R}gyalrong</span><br/>
-              <span class="Author">G. Jacques</span><br/>
-              <span class="Journal">Anthropological Linguistics</span>
-              <span class="Volume">55.3</span>
-              <span class="Pages">256-287</span> (<span class="Date">2013</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="jacques14linking">jacques14linking</dt>
-            <dd class="Pub">
-              <span class="Title">{C}lause linking in {J}aphug {R}gyalrong</span><br/>
-              <span class="Author">G. Jacques</span><br/>
-              <span class="Journal">Linguistics of the Tibeto-Burman Area</span>
-              <span class="Volume">37.2</span>
-              <span class="Pages">263-327</span> (<span class="Date">2014</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="jacques12incorp">jacques12incorp</dt>
-            <dd class="Pub">
-              <span class="Title">{F}rom denominal derivation to incorporation</span><br/>
-              <span class="Author">G. Jacques</span><br/>
-              <span class="Journal">Lingua</span>
-              <span class="Volume">122.11</span>
-              <span class="Pages">1207-1231</span> (<span class="Date">2012</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="jacques13tropative">jacques13tropative</dt>
-            <dd class="Pub">
-              <span class="Title">{A}pplicative and tropative derivations in {J}aphug
-                {R}gyalrong</span><br/>
-              <span class="Author">G. Jacques</span><br/>
-              <span class="Journal">Linguistics of the Tibeto-Burman Area</span>
-              <span class="Volume">36.2</span>
-              <span class="Pages">1-13</span> (<span class="Date">2013</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="jacques14antipassive">jacques14antipassive</dt>
-            <dd class="Pub">
-              <span class="Title">{D}enominal affixes as sources of antipassive markers in {J}aphug
-                {R}gyalrong</span><br/>
-              <span class="Author">G. Jacques</span><br/>
-              <span class="Journal">Lingua</span>
-              <span class="Volume">138</span>
-              <span class="Pages">1-22</span> (<span class="Date">2014</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="jacques15spontaneous">jacques15spontaneous</dt>
-            <dd class="Pub">
-              <span class="Title">{T}he spontaneous- autobenefactive prefix in {J}aphug
-                {R}gyalrong</span><br/>
-              <span class="Author">G. Jacques</span><br/>
-              <span class="Journal">Linguistics of the Tibeto Burman Area</span>
-              <span class="Volume"/>
-              <span class="Pages"/> (<span class="Date">to appear</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-            <dt class="Key" id="jacques15causative">jacques15causative</dt>
-            <dd class="Pub">
-              <span class="Title">{T}he origin of the causative prefix in {R}gyalrong languages and
-                its implication for proto-{S}ino-{T}ibetan reconstruction</span><br/>
-              <span class="Author">G. Jacques</span><br/>
-              <span class="Journal">Folia Linguistica Historica</span>
-              <span class="Volume"/>
-              <span class="Pages"/> (<span class="Date">to appear</span>)<br/>
-              <div class="Abstract"/>
-            </dd>
-          </dl>
-        </div>
       </body>
     </html>
   </xsl:template>
