@@ -41,7 +41,7 @@ a:active {
     <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../corpus/comparable/index.htm">Comparable corpus</a></td>
     <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="index.htm">Dictionaries</a></td>
     <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../links.htm">Read more</a></td>
-    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu">TBD</td>
+    <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../documentation/index.htm">Technical documentation</a></td>
     <td width="200" height="30" align="center" background="../images/HimalCo/bouton.png" class="menu"><a href="../contact.htm">Contact information</a></td>
   </tr>
         </table>
