@@ -19,7 +19,7 @@
               <label for="lang1"> French</label>
             </p>
             <p>
-              <input type="checkbox" name="langn" id="langn" value="cmn"/>
+              <input type="checkbox" name="langn" id="langn" value="cmn" checked="checked"/>
               <label for="langn"> Chinese</label>
             </p>
             <p>
@@ -34,7 +34,7 @@
               <label for="lang1"> English</label>
             </p>
             <p>
-              <input type="checkbox" name="langn" id="langn" value="cmn"/>
+              <input type="checkbox" name="langn" id="langn" value="cmn" checked="checked"/>
               <label for="langn"> Nepali</label>
             </p>
             <p>
@@ -53,7 +53,7 @@
               <label for="lang2"> French</label>
             </p>
             <p>
-              <input type="checkbox" name="langn" id="langn" value="cmn"/>
+              <input type="checkbox" name="langn" id="langn" value="cmn" checked="checked"/>
               <label for="langn"> Chinese</label>
             </p>
             <p>
