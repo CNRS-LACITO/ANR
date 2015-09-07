@@ -49,18 +49,27 @@ doctype-system="about:legacy-compat" indent="yes"/>
                     <td></td>
                      <td valign="top">
                    <!-- <a href="CreateConcordance.php?"><span style="color:#30F"><b>Concordance sur tout le corpus</b></span></a>-->
-					<span style="font-size:20px"><a href=""><b>View table of similarities    </b></a></span> <a href="#" onClick="window.open('info_similarity.htm','popupLink','toolbar=no,status=no,width=700px ,height=100px,resizable=yes',1).focus();return false"><img src="../../images/icones/info1.png" height="20px" width="20px"/></a>
+					<span style="font-size:20px"><a href="#" onClick="window.open('TabOfSimilarities.htm','popupLink','toolbar=no,status=no,width=900px,scrollbars=yes ,height=1000px,resizable=yes',1).focus();return false"><b>View table of similarities for all texts   </b></a></span> <a href="#" onClick="window.open('info_similarity.htm','popupLink','toolbar=no,status=no,width=700px ,height=100px,resizable=yes',1).focus();return false"><img src="../../images/icones/info1.png" height="20px" width="20px"/></a>
                     <!-- A similarity is considered to be made up of a number of equivalent sentences across different languages, equivalent being defined as sharing narrative, lexical or grammatical content. Similarities can also be viewed individually by clicking on a similarity label within a text. Similarities are identified by cells with coloured backgrounding, each similarity sharing a color. -->
                     </td>
                     <td valign="top">
-                 <span style="font-size:20px"> <b> Concordance    </b></span> <a href="#" onClick="window.open('info_concordance.htm','popupLink','toolbar=no,status=no,width=700px ,height=50px,resizable=yes',1).focus();return false"><img src="../../images/icones/info1.png" height="20px" width="20px"/></a>
+                 <span style="font-size:20px"> <b> Concordance   </b></span> <a href="#" onClick="window.open('info_concordance.htm','popupLink','toolbar=no,status=no,width=700px ,height=50px,resizable=yes',1).focus();return false"><img src="../../images/icones/info1.png" height="20px" width="20px"/></a>
                   <!-- Search term can be gloss (lexical or grammatical) or word in source language -->
-				
+
+  
+
+
+
 					<form id="form" name="form" action="CreateConcordanceOneWord.php"  method="post">
-						<input name="mot" type="text" title="mot"  />
-                        <input name="text0" type="hidden" value="text0" />
-                        <input name="text1" type="hidden" value="text1" />
-                        <input name="text2" type="hidden" value="text2" />
+						<input name="mot" type="text" text="mot"  />
+                        <input name="file1" type="hidden" value="{$file1}" />
+                        <input name="file2" type="hidden" value="{$file2}" />
+                        <input name="file3" type="hidden" value="{$file3}" />
+                        <input name="file4" type="hidden" value="{$file4}" />
+                        <input name="file5" type="hidden" value="{$file5}" />
+                        <input name="file6" type="hidden" value="{$file6}" />
+                        <input name="nbsim" type="hidden" value="{$nbsim}" />
+                        <input name="filesim" type="hidden" value="{$filesim}" />
                         
 						
 						<input type="submit" value="Search" />
@@ -97,17 +106,19 @@ doctype-system="about:legacy-compat" indent="yes"/>
    		<div style="width:500px; height:800px; overflow:auto;">
             <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file1"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file1]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file1]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file1]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file1]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file1]/@title"/>
             </xsl:call-template>
    	 	</div>
     </td>
     <td valign="top">
     	<div style="width:500px; height:800px; overflow:auto;">
             <xsl:call-template name="sim">
-                    <xsl:with-param name="file" select="$file1"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file2]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file2]/@title"/>
+                    <xsl:with-param name="file" select="$file2"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file2]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file2]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file2]/@title"/>
             </xsl:call-template>
         </div>
     </td>
@@ -121,8 +132,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
          <div style="width:400px; height:700px; overflow:auto;">
        <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file1"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file1]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file1]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file1]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file1]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file1]/@title"/>
             </xsl:call-template>
     </div>
     	</td>   
@@ -130,8 +142,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
     <div style="width:400px; height:700px; overflow:auto;">
         		<xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file2"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file2]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file2]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file2]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file2]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file2]/@title"/>
             </xsl:call-template>
     </div>
     	</td>
@@ -139,8 +152,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
      <div style="width:400px; height:700px; overflow:auto;">
        <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file3"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file3]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file3]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file3]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file3]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file3]/@title"/>
             </xsl:call-template>
     </div>
     </td>
@@ -156,8 +170,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:500px; height:500px; overflow:auto;">
         		<xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file1"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file1]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file1]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file1]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file1]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file1]/@title"/>
             </xsl:call-template>
         </div>
      </td>  
@@ -165,8 +180,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:500px; height:500px; overflow:auto;">  
                 <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file2"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file2]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file2]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file2]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file2]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file2]/@title"/>
             </xsl:call-template>
         </div>
      </td> 
@@ -176,8 +192,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:500px; height:500px; overflow:auto;">
               <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file3"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file3]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file3]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file3]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file3]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file3]/@title"/>
             </xsl:call-template>
       </div>
      </td>
@@ -185,8 +202,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:500px; height:500px; overflow:auto;">
                 <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file4"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file4]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file4]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file4]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file4]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file4]/@title"/>
             </xsl:call-template>
      </div>
      </td>
@@ -200,8 +218,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
         <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file1"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file1]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file1]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file1]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file1]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file1]/@title"/>
             </xsl:call-template>
     	</div>
     </td>
@@ -209,8 +228,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                 <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file2"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file2]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file2]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file2]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file2]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file2]/@title"/>
             </xsl:call-template>
         </div>
     </td>
@@ -218,8 +238,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                 <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file3"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file3]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file3]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file3]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file3]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file3]/@title"/>
             </xsl:call-template>
         </div>
     </td>
@@ -228,9 +249,10 @@ doctype-system="about:legacy-compat" indent="yes"/>
     <td valign="top">
    	 	<div style="width:330px; height:330px; overflow:auto;">
                <xsl:call-template name="sim">
-                    <xsl:with-param name="file" select="$file34"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file4]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file4]/@title"/>
+                    <xsl:with-param name="file" select="$file4"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file4]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file4]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file4]/@title"/>
             </xsl:call-template>
         </div>
     </td>
@@ -238,8 +260,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file5"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file5]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file5]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file5]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file5]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file5]/@title"/>
             </xsl:call-template>
         </div>
     </td>
@@ -252,8 +275,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                 <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file1"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file1]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file1]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file1]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file1]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file1]/@title"/>
             </xsl:call-template>
         </div>
         </td>
@@ -261,8 +285,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file2"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file2]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file2]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file2]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file2]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file2]/@title"/>
             </xsl:call-template>
         </div>
         </td>
@@ -270,8 +295,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                 <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file3"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file3]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file3]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file3]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file3]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file3]/@title"/>
             </xsl:call-template>
         </div>
         </td>
@@ -287,8 +313,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                 <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file4"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file4]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file4]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file4]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file4]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file4]/@title"/>
             </xsl:call-template>
         </div>
         </td>
@@ -296,8 +323,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file5"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file5]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file5]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file5]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file5]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file5]/@title"/>
             </xsl:call-template>
         </div>
         </td>
@@ -305,8 +333,9 @@ doctype-system="about:legacy-compat" indent="yes"/>
    	 	<div style="width:330px; height:330px; overflow:auto;">
                <xsl:call-template name="sim">
                     <xsl:with-param name="file" select="$file6"/>
-                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file6]/@lang"/>
-                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file6]/@title"/>
+                    <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file6]/@xml"/>
+                    <xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file6]/@lang"/>
+                    <xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file6]/@title"/>
             </xsl:call-template>
         </div>
         </td>
@@ -330,32 +359,89 @@ doctype-system="about:legacy-compat" indent="yes"/>
 <xsl:template name="sim">
 
 <xsl:param name="file" select="''"/>
+<xsl:param name="xml" select="''"/>
 <xsl:param name="lang" select="''"/>
 <xsl:param name="title" select="''"/>
 
 <table border="0">
-<tr><th align="center"><xsl:value-of select="$lang"/></th></tr>
+<tr><th align="center"><xsl:value-of select="$lang"/> </th></tr>
 <tr><th align="center"><xsl:value-of select="$title"/></th></tr>
 <!--<xsl:call-template name="player-audio_wav_file1">
 <xsl:with-param name="f1_sound" select="$f1_sound"/>
 <xsl:with-param name="file" select="$file"/>
 </xsl:call-template>-->
-<!--PARTIE TRAITEMENT ET AFFICHAGE FILE1-->
+<!--PARTIE TRAITEMENT ET AFFICHAGE FILE-->
  
-<xsl:for-each select="document($file)//TEXT/S">
+<xsl:for-each select="document($xml)//TEXT/S">
 <xsl:variable name="num_s" select="position()" />
 <xsl:variable name="id_s" select="@id" />
 <tr>
 <xsl:choose>
-<xsl:when test="document($filesim)//similarities/similarity/file[@id=$file]/sentence[@id=$id_s]">
+<!--<xsl:when test="document($filesim)//similarities/similarity/file[@id=$file]/sentence[@id=$id_s]">-->
+<xsl:when test="(document($filesim)//similarities/similarity/file[@id=$file]/sentence[@id=$id_s]) ">
+
 <xsl:variable name="num_sim" select="document($filesim)//similarities/similarity/file[@id=$file]/sentence[@id=$id_s]/parent::node()/parent::node()/@id"/>
+
 <xsl:variable name="similarity" select="document($filesim)//similarities/similarity/file[@id=$file]/sentence[@id=$id_s]/parent::node()/parent::node()/@id"/>
+
 <xsl:variable name="color" select="document($filesim)//similarities/similarity/file[@id=$file]/sentence[@id=$id_s]/parent::node()/parent::node()/color"/>
+
+
+
+<!--<xsl:if test="document($filesim)//similarities/similarity[@id=$num_sim]/file[@id=$file1]">-->
+
+<!-- Test que pour une similarité donnée on a bien les textes selectionnes qui sont concernés -->
+<xsl:if test="
+(((document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id=$file1]))
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id=$file2])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id!=$file]) and ((document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id=$file3])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id=$file4])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id!=$file])) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id=$file5])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[1][@id=$file6])))
+or
+(((document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id=$file1]))
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id=$file2])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id!=$file]) and ((document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id=$file3])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id=$file4])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id!=$file])) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id=$file5])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[2][@id=$file6])))
+or
+(((document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id=$file1]))
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id=$file2])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id!=$file]) and ((document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id=$file3])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id=$file4])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id!=$file])) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id=$file5])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[3][@id=$file6])))
+or
+(((document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id=$file1]))
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id=$file2])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id!=$file]) and ((document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id=$file3])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id=$file4])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id!=$file])) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id=$file5])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[4][@id=$file6])))
+or
+(((document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id=$file1]))
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id=$file2])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id!=$file]) and ((document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id=$file3])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id=$file4])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id!=$file])) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id=$file5])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[5][@id=$file6])))
+or
+(((document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id=$file1]))
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id=$file2])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id!=$file]) and ((document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id=$file3])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id=$file4])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id!=$file])) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id=$file5])) 
+or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id!=$file]) and (document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id=$file6])))">
+
+
 <td class="segmentContent" width="600px" bgcolor="{$color}">
 <!--<a href="listen.php?similarity={$similarity}&amp;file={$f1_sound}"><img src="../outils/play.gif" alt="écouter"/></a>-->
 <!--<a href="#" onClick="window.open('http://crdo.risc.cnrs.fr/media-cut.php?start=11.7067&amp;end=19.6529&amp;file=DEPOT_HAYUB_22km.wav','Fiche','toolbar=no,status=no,width=200 ,height=120,scrollbars=yes,location=no,resize=yes,menubar=yes')">
 <p><b>Similarity <xsl:value-of select="$num_sim"/></b><br/></p>
 </a>-->
+
+<!--<xsl:value-of select="document($filesim)//similarities/similarity/file[@id=$file2]/sentence[@id=$id_s]/parent::node()/parent::node()/file/@id"/>-->
 
 
 <!--<a href="#" onClick="window.open('ViewOneSimilarity.php?similarity={$similarity}&amp;color={$color}','Fiche','toolbar=no,status=no,width=900 ,height=600,scrollbars=yes,location=no,resize=yes,menubar=yes')">
@@ -367,7 +453,7 @@ doctype-system="about:legacy-compat" indent="yes"/>
 
 
 
-<a	href="ViewOneSimilarity.php?file2={$file2}&amp;file1={$file1}&amp;file3={$file3}&amp;file4={$file4}&amp;file5={$file5}&amp;file6={$file6}&amp;filesim={$filesim}&amp;similarity={$similarity}&amp;color={$color}"
+<a	href="ViewOneSimilarity.php?file1={$file1}&amp;file2={$file2}&amp;file3={$file3}&amp;file4={$file4}&amp;file5={$file5}&amp;file6={$file6}&amp;filesim={$filesim}&amp;similarity={$similarity}&amp;color={$color}"
 					target="_blank"
 					onClick="window.open(this.href,'popup','width=900,height=600,scrollbars=yes,resizable=yes',1);return false">
 						<p><b>Similarity <xsl:value-of select="$num_sim"/></b><br/></p>
@@ -560,6 +646,19 @@ Sentence <xsl:value-of select="$num_s"/><br/>
 </xsl:if>
 <br />
 </td>
+
+
+</xsl:if>
+
+
+
+
+
+
+
+
+
+
 </xsl:when>
 <xsl:otherwise>
 <td class="segmentContent" width="600px">
@@ -767,19 +866,19 @@ Sentence <xsl:value-of select="$num_s"/><br/>
 <xsl:param name="file" select="$file"/>
 <script language="Javascript">
 <xsl:text>var IDS = new Array(</xsl:text>
-<xsl:for-each select="document($file)//TEXT/S">
+<xsl:for-each select="document($xml)//TEXT/S">
 "<xsl:value-of select="position()"/>"
 <xsl:if test="position()!=last()"><xsl:text>,</xsl:text></xsl:if>
 </xsl:for-each>
 <xsl:text>);</xsl:text>
 <xsl:text>var STARTS = new Array(</xsl:text>
-<xsl:for-each select="document($file)//TEXT/S/AUDIO">
+<xsl:for-each select="document($xml)//TEXT/S/AUDIO">
 "<xsl:value-of select="@start"/>"
 <xsl:if test="position()!=last()"><xsl:text>,</xsl:text></xsl:if>
 </xsl:for-each>
 <xsl:text>);</xsl:text>
 <xsl:text>var ENDS = new Array(</xsl:text>
-<xsl:for-each select="document($file)//TEXT/S/AUDIO">
+<xsl:for-each select="document($xml)//TEXT/S/AUDIO">
 "<xsl:value-of select="@end"/>"
 <xsl:if test="position()!=last()"><xsl:text>,</xsl:text></xsl:if>
 </xsl:for-each>

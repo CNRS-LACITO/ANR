@@ -1,7 +1,7 @@
 ﻿<?php
 		
 	  $color=  isset($_GET["color"])    ? $_GET["color"]    : "*";
-	  $similarity=  isset($_GET["similarity"])    ? $_GET["similarity"]    : "*";
+	  $filesim=  isset($_GET["filesim"])    ? $_GET["filesim"]    : "*";
 	 
 $lg=  isset($_GET["lg"])    ? $_GET["lg"]    : "*";
 
@@ -17,7 +17,7 @@ $lg=  isset($_GET["lg"])    ? $_GET["lg"]    : "*";
 	$file5=  isset($_GET["file5"])    ? $_GET["file5"]    : "*";
 	$file6=  isset($_GET["file6"])    ? $_GET["file6"]    : "*";
 	
-	$filesim=  isset($_GET["filesim"])    ? $_GET["filesim"]    : "*";
+	
 	
 
 		/*echo "Similarité : $similarity\n";
@@ -25,44 +25,46 @@ $lg=  isset($_GET["lg"])    ? $_GET["lg"]    : "*";
 		
 	if(isset($_POST['mot'])){
 		$mot=htmlspecialchars($_POST['mot']);
+		/*echo "CreateConcordanceOneWord";*/
 		CreateConcordanceOneWord($mot);
 	 }
 	 else{
 	 $mot=  isset($_GET["mot"])    ? $_GET["mot"]    : "*";
 	 }
 
-			if ($similarity=="")	{
-
-		ViewOneSentence($file, $sentence, $mot);
+			if ($color=="")	{
+		/*echo "ViewOneSentence";*/
+		ViewOneSentence($filesim, $file, $sentence, $mot);
 		
 		
 		}
 		else {
 			if ($mot==""){
-			
-		ViewOneSimilarity($similarity, $color, $mot, $file1, $file2, $file3, $file4, $file5, $file6, $filesim);
+			/*echo "ViewOneSimilarity";*/
+		ViewOneSimilarity($filesim, $color, $mot, $file1, $file2, $file3, $file4, $file5, $file6, $filesim);
 		}
 		else {
-	
-		ViewOneSimilarityOneWord($similarity, $color, $mot, $file1, $file2, $file3, $file4, $file5, $file6, $filesim);
+	/*echo "ViewOneSimilarityOneWord";*/
+		ViewOneSimilarityOneWord($filesim, $color, $mot, $file1, $file2, $file3, $file4, $file5, $file6, $filesim);
 		}
 		}
 		
 			
 			
 	
-		function viewOneSentence( $file, $sentence, $mot) {
+		function viewOneSentence($filesim, $file, $sentence, $mot) {
 	
-
 			  $xp = new XsltProcessor();
 			  $xsl = new DomDocument;
 			  //$xsl->load('http://lacito.vjf.cnrs.fr/archivage/tools/listRsc.xsl');
 			  $xsl->load('ShowOneSentence.xsl');
 			  
 			  $xp->setParameter('', 'file', $file);
+			  $xp->setParameter('', 'filesim', $filesim);
 			   $xp->setParameter('', 'sentence', $sentence);
 			   $xp->setParameter('', 'mot', $mot);
 			 
+			
 			  // import the XSL styelsheet into the XSLT process
 			  $xp->importStylesheet($xsl);
 
@@ -70,7 +72,7 @@ $lg=  isset($_GET["lg"])    ? $_GET["lg"]    : "*";
 			// create a DOM document and load the XML datat
 			  $xml_doc = new DomDocument;
 			  //$xml_doc->load('http://lacito.vjf.cnrs.fr/archivage/tools/metadata_lacito.xml');
-			  $xml_doc->load('orphans.xml');
+			  $xml_doc->load($filesim);
 
 
 			  // transform the XML into HTML using the XSL file
@@ -82,7 +84,7 @@ $lg=  isset($_GET["lg"])    ? $_GET["lg"]    : "*";
 	}	
 				
 
-function ViewOneSimilarityOneWord($similarity, $color, $mot, $file1, $file2, $file3, $file4, $file5, $file6, $filesim) {
+function ViewOneSimilarityOneWord($filesim, $color, $mot, $file1, $file2, $file3, $file4, $file5, $file6, $filesim) {
 	
 	/*echo "sim $similarity";
 $file1="tata";
@@ -92,7 +94,6 @@ $file1="tata";
 			  //$xsl->load('http://lacito.vjf.cnrs.fr/archivage/tools/listRsc.xsl');
 			  $xsl->load('ShowOneSimilarityWord.xsl');
 			  
-			  $xp->setParameter('', 'similarity', $similarity);
 			  $xp->setParameter('', 'file1', $file1);
 			  $xp->setParameter('', 'file2', $file2);
 			  $xp->setParameter('', 'file3', $file3);
@@ -124,14 +125,14 @@ $file1="tata";
 	}	
 
 
-function ViewOneSimilarity($similarity, $color, $mot, $file1, $file2, $file3, $file4, $file5, $file6, $filesim) {
+function ViewOneSimilarity($filesim, $color, $mot, $file1, $file2, $file3, $file4, $file5, $file6, $filesim) {
 	
 			  $xp = new XsltProcessor();
 			  $xsl = new DomDocument;
 			  //$xsl->load('http://lacito.vjf.cnrs.fr/archivage/tools/listRsc.xsl');
 			  $xsl->load('ShowOneSimilarity.xsl');
 			  
-			  $xp->setParameter('', 'similarity', $similarity);
+			  $xp->setParameter('', 'filesim', $filesim);
 			   $xp->setParameter('', 'color', $color);
 			   
 			    $xp->setParameter('', 'file1', $file1);
@@ -150,7 +151,7 @@ function ViewOneSimilarity($similarity, $color, $mot, $file1, $file2, $file3, $f
 			// create a DOM document and load the XML datat
 			  $xml_doc = new DomDocument;
 			  //$xml_doc->load('http://lacito.vjf.cnrs.fr/archivage/tools/metadata_lacito.xml');
-			  $xml_doc->load('orphans.xml');
+			  $xml_doc->load($filesim);
 
 
 			  // transform the XML into HTML using the XSL file

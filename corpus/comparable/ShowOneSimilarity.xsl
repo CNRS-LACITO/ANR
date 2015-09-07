@@ -3,7 +3,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
     <xsl:param name="color" select="''"/>
-    <xsl:param name="similarity" select="''"/>
+    <xsl:param name="filesim" select="''"/>
 
 	
 	<xsl:param name="f1_xml" select="similarities/files/file[1]/@xml"/>
@@ -27,196 +27,8 @@
 				<meta http-equiv="Content-Language" content="fr"/>
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 				<script src="../outils/showhide.js" type="text/javascript">.</script>
-				
+				<link href="../../styles.css" rel="stylesheet" type="text/css"/>
 		
-  
-	
-				
-				<style>
-					/*****************************************************************************/     
-					/* pour presenter un texte interlineaire                                    **/
-					/*****************************************************************************/  
-					
-				
-					table.it {
-					border-collapse: separate;
-					}
-					.transcriptTable { 
-					border-collapse:collapse;
-					vertical-align:middle;
-					/*background-color:#D3E8FA;*/
-					/*  background-color:#CBE2FE;*/
-					background-color:#EEF8FF;
-					
-					}
-					
-					.segmentInfo {
-					background-color:#0E3263;
-					color:White;
-					vertical-align:top;
-					/**
-					width:60px;
-					**/
-					}
-					
-					.segmentContent {
-					
-					width:600px;
-					
-					
-					
-					}
-					
-					
-					.sentence {
-					
-					border-collapse: separate ;
-					display: inline;
-					vertical-align:middle;
-					text-align:left;
-					
-					}
-					
-					/*Couleur de la phrase de transcription*/
-					.word_sentence{
-					
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					border-collapse: separate ;
-					display: inline;
-					/*	color:#000066;*/
-					color:#0E3263;
-					font-size:15px;
-					text-align:left;
-					font-weight: bold;
-					
-					}
-					
-					/*Couleur de la phrase de traduction*/
-					.translation_en {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					color:#2E6398;
-					text-align:left;
-					font-weight: bold; 
-					font-size:12px;
-					display:inline;
-					
-					}
-					
-					.translation_fr {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					/*color:#566772;*/
-					/*color:#474B69;*/
-					color:#5A78AF;
-					text-align:left;
-					font-weight: bold; 
-					font-size:12px;
-					display:inline;
-					
-					}
-					
-					.translation_other {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					color:#187C96;
-					text-align:left;
-					font-weight: bold;
-					font-size:12px; 
-					display:inline;
-					}
-					.word                     { 
-					border-collapse: separate ;
-					display: inline;
-					vertical-align:middle;
-					text-align:left;
-					
-					
-					}
-					
-					.word_tab                     { 
-					vertical-align:middle;
-					text-align:left;
-					display:inline;
-					
-					}
-					.word_form {
-					/*background-color:#FEF1D4;*/
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					font-weight: bold; 
-					text-align:left;
-					font-size:15px;
-					
-					
-					
-					
-					}
-					.word_transl {
-					font-family:'caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*background-color:#FEF1D4;*/
-					color:#5F5F5F;	
-					text-align:left;
-					
-					
-					}
-					.transcription {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_phono {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_ortho {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_phone {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_translit {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.note_info {
-					font-family:sans-serif,'caslon','Arial Unicode MS','Lucida sans unicode','Code2000';
-					text-align:left;
-					font-weight:bold; 
-					font-size:11px;
-					color:#000;
-					
-					display:none;
-					
-					}
-					
-				</style>
 			</head>
 			<body>
 				
@@ -254,13 +66,14 @@
 								
 								
 								
-									<xsl:if test="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f1_xml]/sentence[@id=$id_s]">
-										<xsl:variable name="num_sim" select="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f1_xml]/sentence"/>	
+									<xsl:if test="document($filesim)//similarities/similarity[@id=$filesim]/file[@id=$file]/sentence[@id=$id_s]">
+										<xsl:variable name="num_sim" select="document($filesim)//similarities/similarity[@id=$filesim]/file[@id=$file]/sentence"/>
 										<tr>
 										<td class="segmentContent" width="600px" bgcolor="{$color}">
-											<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
-											**Sentence <xsl:value-of select="$num_s"/>**<br/>
+											<br/>
+											<b><span style="background-color:#FDD9AC">Sentence <xsl:value-of select="$num_s"/></span></b>
 										
+											<br/>
 											
 											
 											<!--<a href="javascript:boutonStop()">
@@ -556,11 +369,11 @@
 										
 											
 											
-											<xsl:if test="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f2_xml]/sentence[@id=$id_s]">
-												<xsl:variable name="num_sim" select="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f2_xml]/sentence"/>	
+											<xsl:if test="document($filesim)//similarities/similarity[@id=$filesim]/file[@id=$f2_xml]/sentence[@id=$id_s]">
+												<xsl:variable name="num_sim" select="document($filesim)//similarities/similarity[@id=$filesim]/file[@id=$f2_xml]/sentence"/>	
 												<tr>
 												<td class="segmentContent" width="600px" bgcolor="{$color}">
-													<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
+													<p><b>Similarity <xsl:value-of select="$filesim"/></b><br/></p>
 													**Sentence <xsl:value-of select="$num_s"/>**<br/>
 													
 													
@@ -859,11 +672,11 @@
 										
 											
 											
-											<xsl:if test="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f3_xml]/sentence[@id=$id_s]">
-												<xsl:variable name="num_sim" select="document('orphans.xml')//similarities/similarity[@id=$similarity]/file[@id=$f3_xml]/sentence"/>	
+											<xsl:if test="document($filesim)//similarities/similarity[@id=$filesim]/file[@id=$f3_xml]/sentence[@id=$id_s]">
+												<xsl:variable name="num_sim" select="document($filesim)//similarities/similarity[@id=$filesim]/file[@id=$f3_xml]/sentence"/>	
 												<tr>
 												<td class="segmentContent" width="600px" bgcolor="{$color}">
-													<p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p>
+													<p><b>Similarity <xsl:value-of select="$filesim"/></b><br/></p>
 													**Sentence <xsl:value-of select="$num_s"/>**<br/>
 													
 													

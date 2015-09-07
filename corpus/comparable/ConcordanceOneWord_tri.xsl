@@ -4,17 +4,15 @@
 
 	<xsl:param name="tri_demande" select="''"/>
 	
-	<xsl:param name="f1_xml" select="similarities/files/file[1]/@xml"/>
-	<xsl:param name="f2_xml" select="similarities/files/file[2]/@xml"/>
-	<xsl:param name="f3_xml" select="similarities/files/file[3]/@xml"/>
-	
-	<xsl:param name="f1_lang" select="similarities/files/file[1]/@lang"/>
-	<xsl:param name="f2_lang" select="similarities/files/file[2]/@lang"/>
-	<xsl:param name="f3_lang" select="similarities/files/file[3]/@lang"/>
-	
-	<xsl:param name="f1_sound" select="similarities/files/file[1]/@sound"/>
-	<xsl:param name="f2_sound" select="similarities/files/file[2]/@sound"/>
-	<xsl:param name="f3_sound" select="similarities/files/file[3]/@sound"/>
+    <xsl:param name="filesim" select="'*'"/>
+<xsl:param name="nbsim" select="'*'"/>
+<xsl:param name="file1" select="'*'"/>
+<xsl:param name="file2" select="'*'"/>
+<xsl:param name="file3" select="'*'"/>
+<xsl:param name="file4" select="'*'"/>
+<xsl:param name="file5" select="'*'"/>
+<xsl:param name="file6" select="'*'"/>
+
 	
 	<!-- ******************************************************** -->
 	<xsl:template match="/">
@@ -24,184 +22,6 @@
 				<script src="../outils/showhide.js" type="text/javascript">.</script>
 			
 				
-				
-				
-				<style>
-					/*****************************************************************************/     
-					/* pour presenter un texte interlineaire                                    **/
-					/*****************************************************************************/  
-					
-					
-					table.it {
-					border-collapse: separate;
-					}
-					
-					.transcriptTable { 
-					border-collapse:collapse;
-					vertical-align:middle;
-					/*background-color:#D3E8FA;*/
-					/*  background-color:#CBE2FE;*/
-					background-color:#EEF8FF;
-					}
-					
-					.segmentInfo {
-					background-color:#0E3263;
-					color:White;
-					vertical-align:top;
-					/**
-					width:60px;
-					**/
-					}
-					
-					.segmentContent {	
-					width:600px;
-					}
-					
-					.sentence {			
-					border-collapse: separate ;
-					display: inline;
-					vertical-align:middle;
-					text-align:left;	
-					}
-					
-					/*Couleur de la phrase de transcription*/
-					.word_sentence {				
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					border-collapse: separate ;
-					display: inline;
-					/*	color:#000066;*/
-					color:#0E3263;
-					font-size:15px;
-					text-align:left;
-					font-weight: bold;				
-					}
-					
-					/*Couleur de la phrase de traduction*/
-					.translation_en {
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					color:#2E6398;
-					text-align:left;
-					font-weight: bold; 
-					font-size:12px;
-					display:inline;			
-					}
-					
-					.translation_fr {				
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					/*color:#566772;*/
-					/*color:#474B69;*/
-					color:#5A78AF;
-					text-align:left;
-					font-weight: bold; 
-					font-size:12px;
-					display:inline;		
-					}
-					
-					.translation_other {				
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					color:#187C96;
-					text-align:left;
-					font-weight: bold;
-					font-size:12px; 
-					display:inline;
-					}
-					
-					.word                     { 
-					border-collapse: separate ;
-					display: inline;
-					vertical-align:middle;
-					text-align:left;
-					}
-					
-					.word_tab                     { 
-					vertical-align:middle;
-					text-align:left;
-					display:inline;
-					}
-					
-					.word_form {
-					/*background-color:#FEF1D4;*/
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					font-weight: bold; 
-					text-align:left;
-					font-size:15px;
-					}
-					
-					.word_transl {
-					font-family:'caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*background-color:#FEF1D4;*/
-					color:#5F5F5F;	
-					text-align:left;
-					}
-					
-					.transcription {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					
-					.transcription_phono {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					
-					.transcription_ortho {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					
-					.transcription_phone {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					
-					.transcription_translit {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					
-					.note_info {
-					font-family:sans-serif,'caslon','Arial Unicode MS','Lucida sans unicode','Code2000';
-					text-align:left;
-					font-weight:bold; 
-					font-size:11px;
-					color:#000;
-					display:none;
-					}
-					
-					.all_form{ 
-						border-collapse: separate ;
-						text-align:left;
-						font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-						text-align:left;
-					}
-					
-				</style>
 			</head>
 			<body>
   
@@ -215,17 +35,7 @@
 					
 
 					<br/><br/>
-					<!--<div>
-						Rechercher un terme :
-						<br/>
-						<form id="form" name="form" action="CreateConcordanceOneWord.php"  method="post">
-						<input name="mot" type="text" title="mot"  />
-						
-							<input type="submit" value="OK" />
-						</form>
-					</div>-->
-					
-					
+				
 					
 					</div>
 				<!--<xsl:value-of select="$url_similarities"/>-->
@@ -234,41 +44,19 @@
 				
 				<table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#993300" class="it">
 					<tbody>
-						<!--<tr>
-							<td>
-								phrase :
-								<xsl:if test="document($txt)//TEXT/S[@id=$phr]">
-									<xsl:for-each select="document($txt)//TEXT/S[@id=$phr]/W">
-										<xsl:for-each select="M">
-										<xsl:value-of select="FORM"/>
-										<xsl:if test="position()!=last()">-</xsl:if>
-										</xsl:for-each>
-										
-									<xsl:for-each select="M">
-									<xsl:value-of select="TRANSL"/>
-									<xsl:if test="position()!=last()">-</xsl:if>
-									</xsl:for-each>
-										</xsl:for-each>
-								</xsl:if>
-							</td>
-						</tr>-->
+						
 						<tr>
 							<td valign="top">
 								
 								<table border="1">
-									<!--<tr><th align="center"><xsl:value-of select="$f1_lang"/></th></tr>
-									<tr><th align="center"><xsl:value-of select="$f1_xml"/></th></tr>-->
-								<!--<xsl:call-template name="player-audio_wav_file1">
-									<xsl:with-param name="f1_sound" select="$f1_sound"/>
-									<xsl:with-param name="f1_xml" select="$f1_xml"/>
-								</xsl:call-template>-->
-								<!--PARTIE TRAITEMENT ET AFFICHAGE FILE1-->
+									
+								<!--PARTIE TRAITEMENT ET AFFICHAGE-->
 									<tr>
 										
 										<table border="1">
 											<tr>
 												<th align="center">No</th>
-												<th align="center">Texte</th>
+												<th align="center">Histoire</th>
 												<th align="center">Phrase</th>
 												<th align="center">Contexte gauche</th>
 												<th align="center">Mot</th>
@@ -283,23 +71,23 @@
 												
 												<xsl:variable name="nom_s" select="num_phrase"/>
 												<xsl:variable name="nom_t" select="texte"/>
-												
+												<!--<xsl:variable name="nom_t" select="document($filesim)//similarities/files/file[@id=$texte]/@title"/>-->
 												
 												<tr>
 													<!--<td><xsl:value-of select="$no+1"/></td>-->
 													<td><xsl:value-of select="position()"/></td>
-													<td><!--<a href="CreateConcordance.php?tri=trad_mot&amp;phrase={$nom_s}&amp;texte={$nom_t}">--><xsl:value-of select="texte"/><!--</a>--></td>	
+													<td><!--<a href="CreateConcordance.php?tri=trad_mot&amp;phrase={$nom_s}&amp;texte={$nom_t}">--><xsl:value-of select="document($filesim)//similarities/files/file[@xml=$nom_t]/@title"/><!--</a>--></td>	
 													<td><xsl:value-of select="num_phrase"/></td>	
 													<td align="right" class="all_form"><xsl:value-of select="mot_gauche"/></td>
 					
-													<xsl:value-of select="document('orphans.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]"/>
-														<xsl:variable name="num_sim" select="document('orphans.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/@id"/>
-														<xsl:variable name="similarity" select="document('orphans.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/@id"/>
-														<xsl:variable name="color" select="document('orphans.xml')//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/color"/>				
+													<xsl:value-of select="document($filesim)//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]"/>
+														<xsl:variable name="num_sim" select="document($filesim)//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/@id"/>
+														<xsl:variable name="similarity" select="document($filesim)//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/@id"/>
+														<xsl:variable name="color" select="document($filesim)//similarities/similarity/file[@id=$nom_t]/sentence[@id=$nom_s]/parent::node()/parent::node()/color"/>				
 													<xsl:variable name="mot" select="mot_cours"/>
 													
 													
-													<td bgcolor="grey" class="all_form"><a href="#" onClick="window.open('ViewOneSimilarity.php?similarity={$similarity}&amp;color={$color}&amp;file={$nom_t}&amp;sentence={$nom_s}&amp;mot={$mot}','Fiche','toolbar=no,status=no,width=900 ,height=600,scrollbars=yes,location=no,resize=yes,menubar=yes')"><xsl:value-of select="mot_cours"/></a></td>	
+													<td bgcolor="grey" class="all_form"><a href="#" onClick="window.open('ViewOneSimilarity.php?filesim={$filesim}&amp;color={$color}&amp;file={$nom_t}&amp;sentence={$nom_s}&amp;mot={$mot}','Fiche','toolbar=no,status=no,width=900 ,height=600,scrollbars=yes,location=no,resize=yes,menubar=yes')"><xsl:value-of select="mot_cours"/></a></td>	
 													<td align="left" class="all_form"><xsl:value-of select="mot_droite"/></td>	
 													<td><xsl:value-of select="trad_mot"/></td>														
 												</tr>

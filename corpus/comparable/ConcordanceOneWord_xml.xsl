@@ -3,18 +3,16 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 	<xsl:param name="mot" select="''"/>
-	
-	<xsl:param name="f1_xml" select="similarities/files/file[1]/@xml"/>
-	<xsl:param name="f2_xml" select="similarities/files/file[2]/@xml"/>
-	<xsl:param name="f3_xml" select="similarities/files/file[3]/@xml"/>
-	
-	<xsl:param name="f1_lang" select="similarities/files/file[1]/@lang"/>
-	<xsl:param name="f2_lang" select="similarities/files/file[2]/@lang"/>
-	<xsl:param name="f3_lang" select="similarities/files/file[3]/@lang"/>
-	
-	<xsl:param name="f1_sound" select="similarities/files/file[1]/@sound"/>
-	<xsl:param name="f2_sound" select="similarities/files/file[2]/@sound"/>
-	<xsl:param name="f3_sound" select="similarities/files/file[3]/@sound"/>
+    
+	<xsl:param name="filesim" select="'*'"/>
+<xsl:param name="nbsim" select="'*'"/>
+<xsl:param name="file1" select="'*'"/>
+<xsl:param name="file2" select="'*'"/>
+<xsl:param name="file3" select="'*'"/>
+<xsl:param name="file4" select="'*'"/>
+<xsl:param name="file5" select="'*'"/>
+<xsl:param name="file6" select="'*'"/>
+
 	
 	<!-- ******************************************************** -->
 	<xsl:template match="/">
@@ -35,8 +33,11 @@
 												<th align="center">contexte droit</th>
 												<th align="center">Gloses</th>
 											</tr>-->
-											<xsl:for-each select="//similarities/files/file/@xml">
-												<xsl:variable name="fi" select="." />
+											<xsl:for-each select="//similarities/files/file">
+                                            <xsl:variable name="id" select="@id" />
+												<xsl:variable name="fi" select="@xml" />
+                                                
+                                            <xsl:if test="$id=$file1 or $id=$file2 or $id=$file3 or $id=$file4 or $id=$file5 or $id=$file6 ">
 											<xsl:for-each select="document($fi)//TEXT/S">
 											
 								<xsl:variable name="num_s" select="position()" />
@@ -205,6 +206,7 @@
 															
 															
 														</xsl:for-each>
+                                                        
 													</xsl:when>
 													<xsl:when test="W/FORM and W/TRANSL">
 														
@@ -371,6 +373,7 @@
 													
 												</xsl:choose>
 							</xsl:for-each>
+                            </xsl:if>
 						</xsl:for-each>
 											
 					

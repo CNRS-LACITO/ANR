@@ -58,35 +58,30 @@ a:active {
 	<?php
 		error_reporting(0);
 		
-	  $similarity=  isset($_POST["similarity"])    ? $_POST["similarity"]    : "*";
-	  $trans=  "ShowAllSimilarities.xsl";
+	  $similarity=  isset($_GET["similarity"])    ? $_GET["similarity"]    : "*";
+	  $file1=  isset($_GET["file1"])    ? $_GET["file1"]    : "*";
+	  $file2=  isset($_GET["file2"])    ? $_GET["file2"]    : "*";
+	  $file3=  isset($_GET["file3"])    ? $_GET["file3"]    : "*";
+	  $file4=  isset($_GET["file4"])    ? $_GET["file4"]    : "*";
+	  $file5=  isset($_GET["file5"])    ? $_GET["file5"]    : "*";
+	  $file6=  isset($_GET["file6"])    ? $_GET["file6"]    : "*";
+	  $nbsim=  isset($_GET["nbsim"])    ? $_GET["nbsim"]    : "*";
+	 
 	  
-$files = array(); 	  
-	
-if (isset($_POST['orphans'])) {
-	$similarity="orphans.xml";
-	 $i=0;
-foreach($_POST['orphans'] as $valeur)
-{
-   $file[$i]=$valeur;
-   $i++;
-}
-$nbsim=$i;
-}
+	  $trans=  "ShowAllSimilarities.xsl";
+	 
 
 
 
-/*echo $similarity;*/
+/*echo "sim $similarity\n";
+echo "f1 $file1\n";
+echo "f2 $file2\n";
+echo "f3 $file3\n";
+echo "f4 $file4\n";
+echo "f5 $file5\n";
+echo "f6 $file6\n";
+echo "nbsim $nbsim\n";*/
 
-/*echo "1 $file[0]";
-echo "2 $file[1]";*/
-
-$file1=$file[0];
-$file2=$file[1];
-$file3=$file[2];
-$file4=$file[3];
-$file5=$file[4];
-$file6=$file[5];
 
 
 
@@ -100,8 +95,6 @@ $file6=$file[5];
 
 
 function ViewSimilarities($similarity, $trans, $nbsim, $file1, $file2, $file3, $file4, $file5, $file6) {
-	
-	
 	
 			  $xp = new XsltProcessor();
 			  $xsl = new DomDocument;
@@ -130,7 +123,6 @@ function ViewSimilarities($similarity, $trans, $nbsim, $file1, $file2, $file3, $
 			  // transform the XML into HTML using the XSL file
 			  if ($html = $xp->transformToXML($xml_doc)) {
 				  echo $html;
-				  
 			  } else {
 				  trigger_error('XSL transformation failed.', E_USER_ERROR);
 			  }

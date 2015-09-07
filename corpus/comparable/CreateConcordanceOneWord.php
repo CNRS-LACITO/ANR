@@ -48,28 +48,54 @@ a:active {
 <!-- Body -->
 <table width="1200" height="700" align="center" class="fond">
   <tr>
-    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF"><p> <a href="ViewAllSimilarities.php?similarity=orphans.xml"><span style="color:#30F"><b>Back to selected corpus</b></span></a> </p>
+    <td width="1200" height="700" align="left" valign="top" bgcolor="#FFFFFF">
       <?php
+		
+		
+		$file1=  isset($_POST["file1"])    ? $_POST["file1"]    : "*";
+	$file2=  isset($_POST["file2"])    ? $_POST["file2"]    : "*";
+	$file3=  isset($_POST["file3"])    ? $_POST["file3"]    : "*";
+	$file4=  isset($_POST["file4"])    ? $_POST["file4"]    : "*";
+	$file5=  isset($_POST["file5"])    ? $_POST["file5"]    : "*";
+	$file6=  isset($_POST["file6"])    ? $_POST["file6"]    : "*";
+	
+	$filesim=  isset($_POST["filesim"])    ? $_POST["filesim"]    : "*";
+	
+	$nbsim=  isset($_POST["nbsim"])    ? $_POST["nbsim"]    : "*";
+	
+	
+
+    
+    
+    echo "<a href=\"BackViewAllSimilarities.php?similarity=$filesim&amp;file1=$file1&amp;file2=$file2&amp;file3=$file3&amp;file4=$file4&amp;file5=$file5&amp;file6=$file6&amp;nbsim=$nbsim\"><span style=\"color:#30F\"><b>Back to selected corpus</b></span></a> </p>";
 		
 	  set_time_limit(0); 
 	  
 	  
 		$mot=htmlspecialchars($_POST['mot']);
 		
-		CreateConcordanceOneWord($mot);
+		CreateConcordanceOneWord($mot, $filesim, $file1, $file2, $file3, $file4, $file5, $file6);
 	 
 
 
 	 
-function CreateConcordanceOneWord($mot) {
+function CreateConcordanceOneWord($mot, $filesim, $file1, $file2, $file3, $file4, $file5, $file6) {
 	
 			  $xp = new XsltProcessor();
 			  $xsl = new DomDocument;
-			  //$xsl->load('http://lacito.vjf.cnrs.fr/archivage/tools/listRsc.xsl');
-			  
-			 
-			  
+			
+			
 			  $xsl->load('ConcordanceOneWord_xml.xsl');
+			 
+			  $xp->setParameter('', 'mot', $mot);
+			  
+			  $xp->setParameter('', 'filesim', $filesim);
+			  $xp->setParameter('', 'file1', $file1);
+			  $xp->setParameter('', 'file2', $file2);
+			  $xp->setParameter('', 'file3', $file3);
+			  $xp->setParameter('', 'file4', $file4);
+			  $xp->setParameter('', 'file5', $file5);
+			  $xp->setParameter('', 'file6', $file6);
 			 
 			  $xp->setParameter('', 'mot', $mot);
 			  // import the XSL styelsheet into the XSLT process
@@ -79,7 +105,7 @@ function CreateConcordanceOneWord($mot) {
 			// create a DOM document and load the XML data
 			  $xml_doc = new DomDocument;
 			  //$xml_doc->load('http://lacito.vjf.cnrs.fr/archivage/tools/metadata_lacito.xml');
-			 $xml_doc->load('orphans.xml');
+			 $xml_doc->load($filesim);
 
 			  
 			  if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Firefox' ) !== FALSE ) { $navigator="Firefox"; }
@@ -93,13 +119,20 @@ function CreateConcordanceOneWord($mot) {
 			  
 			  $xp = new XsltProcessor();
 			  $xsl = new DomDocument;
-			  //$xsl->load('http://lacito.vjf.cnrs.fr/archivage/tools/listRsc.xsl');
-			 
-			
 			
 			 
 			 $xsl->load("ConcordanceOneWord_tri.xsl");
 			
+			$xp->setParameter('', 'mot', $mot);
+			  
+			  $xp->setParameter('', 'filesim', $filesim);
+			  $xp->setParameter('', 'file1', $file1);
+			  $xp->setParameter('', 'file2', $file2);
+			  $xp->setParameter('', 'file3', $file3);
+			  $xp->setParameter('', 'file4', $file4);
+			  $xp->setParameter('', 'file5', $file5);
+			  $xp->setParameter('', 'file6', $file6);
+			  
 			  // import the XSL styelsheet into the XSLT process
 			  $xp->importStylesheet($xsl);
 

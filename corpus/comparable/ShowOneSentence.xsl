@@ -3,7 +3,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
     <xsl:param name="file" select="''"/>
+    <xsl:param name="filesim" select="''"/>
     <xsl:param name="sentence" select="''"/>
+    
 	
 	<xsl:param name="mot" select="''"/>
 
@@ -29,196 +31,11 @@
 				<meta http-equiv="Content-Language" content="fr"/>
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 				<script src="../outils/showhide.js" type="text/javascript">.</script>
-				
-		
+				<link href="../../styles.css" rel="stylesheet" type="text/css"/>
   
 	
 				
-				<style>
-					/*****************************************************************************/     
-					/* pour presenter un texte interlineaire                                    **/
-					/*****************************************************************************/  
-					
 				
-					table.it {
-					border-collapse: separate;
-					}
-					.transcriptTable { 
-					border-collapse:collapse;
-					vertical-align:middle;
-					/*background-color:#D3E8FA;*/
-					/*  background-color:#CBE2FE;*/
-					background-color:#EEF8FF;
-					
-					}
-					
-					.segmentInfo {
-					background-color:#0E3263;
-					color:White;
-					vertical-align:top;
-					/**
-					width:60px;
-					**/
-					}
-					
-					.segmentContent {
-					
-					width:600px;
-					
-					
-					
-					}
-					
-					
-					.sentence {
-					
-					border-collapse: separate ;
-					display: inline;
-					vertical-align:middle;
-					text-align:left;
-					
-					}
-					
-					/*Couleur de la phrase de transcription*/
-					.word_sentence{
-					
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					border-collapse: separate ;
-					display: inline;
-					/*	color:#000066;*/
-					color:#0E3263;
-					font-size:15px;
-					text-align:left;
-					font-weight: bold;
-					
-					}
-					
-					/*Couleur de la phrase de traduction*/
-					.translation_en {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					color:#2E6398;
-					text-align:left;
-					font-weight: bold; 
-					font-size:12px;
-					display:inline;
-					
-					}
-					
-					.translation_fr {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					/*color:#566772;*/
-					/*color:#474B69;*/
-					color:#5A78AF;
-					text-align:left;
-					font-weight: bold; 
-					font-size:12px;
-					display:inline;
-					
-					}
-					
-					.translation_other {
-					
-					font-family:'Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*color:#ff9900;*/
-					/*color:#3366FF;*/
-					color:#187C96;
-					text-align:left;
-					font-weight: bold;
-					font-size:12px; 
-					display:inline;
-					}
-					.word                     { 
-					border-collapse: separate ;
-					display: inline;
-					vertical-align:middle;
-					text-align:left;
-					
-					
-					}
-					
-					.word_tab                     { 
-					vertical-align:middle;
-					text-align:left;
-					display:inline;
-					
-					}
-					.word_form {
-					/*background-color:#FEF1D4;*/
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					font-weight: bold; 
-					text-align:left;
-					font-size:15px;
-					
-					
-					
-					
-					}
-					.word_transl {
-					font-family:'caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					/*background-color:#FEF1D4;*/
-					color:#5F5F5F;	
-					text-align:left;
-					
-					
-					}
-					.transcription {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_phono {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_ortho {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_phone {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.transcription_translit {
-					font-family:'charis SIL','caslon','Arial Unicode MS','Lucida sans unicode','Code2000',sans-serif;
-					text-align:left;
-					display:inline;
-					font-weight: bold; 
-					font-size:15px;
-					color:#0E3263;
-					}
-					.note_info {
-					font-family:sans-serif,'caslon','Arial Unicode MS','Lucida sans unicode','Code2000';
-					text-align:left;
-					font-weight:bold; 
-					font-size:11px;
-					color:#000;
-					
-					display:none;
-					
-					}
-					
-				</style>
 			</head>
 			<body>
 				
@@ -244,7 +61,7 @@
 								
 								<table border="1">
 									<!--<tr><th align="center"><xsl:value-of select="$f1_lang"/></th></tr>-->
-									<tr><th align="center"><xsl:value-of select="$file"/></th></tr>
+									<tr><th align="center"><xsl:value-of select="document($filesim)//similarities/files/file[@xml=$file]/@title"/></th></tr>
 								<!--<xsl:call-template name="player-audio_wav_file1">
 									<xsl:with-param name="f1_sound" select="$f1_sound"/>
 									<xsl:with-param name="f1_xml" select="$f1_xml"/>

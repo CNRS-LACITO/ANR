@@ -38,14 +38,15 @@
 				
 				<table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
 					<tbody>
-						<th align="left" bgcolor="#CCCCCC"><p><b>Similarity <xsl:value-of select="$similarity"/></b><br/></p></th>
+						<th align="left" bgcolor="#CCCCCC"><p><b>Similarity <xsl:value-of select="$similarity"/> </b><br/></p></th>
                  
                 <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file1]">
                 
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file1"/>
-                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file1]/@lang"/>
-                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file1]/@title"/>
+                        <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file1]/@xml"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file1]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file1]/@title"/>
            			</xsl:call-template>
    	 			
                 </xsl:if>
@@ -53,8 +54,9 @@
                
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file2"/>
-                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file2]/@lang"/>
-                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file2]/@title"/>
+                        <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file2]/@xml"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file2]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file2]/@title"/>
            			</xsl:call-template>
    	 			
                 </xsl:if>
@@ -62,8 +64,9 @@
                 
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file3"/>
-                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file3]/@lang"/>
-                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file3]/@title"/>
+                        <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file3]/@xml"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file3]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file3]/@title"/>
            			</xsl:call-template>
    	 			
                 </xsl:if>
@@ -71,8 +74,9 @@
                
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file4"/>
-                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file4]/@lang"/>
-                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file4]/@title"/>
+                        <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file4]/@xml"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file4]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file4]/@title"/>
            			</xsl:call-template>
    	 		
                 </xsl:if>
@@ -80,8 +84,9 @@
                
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file5"/>
-                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file5]/@lang"/>
-                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file5]/@title"/>
+                        <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file5]/@xml"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file5]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file5]/@title"/>
            			</xsl:call-template>
    	 		
                 </xsl:if>
@@ -89,8 +94,9 @@
                
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file6"/>
-                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@xml=$file6]/@lang"/>
-                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@xml=$file6]/@title"/>
+                        <xsl:with-param name="xml" select="document($filesim)//similarities/files/file[@id=$file6]/@xml"/>
+                    	<xsl:with-param name="lang" select="document($filesim)//similarities/files/file[@id=$file6]/@lang"/>
+                    	<xsl:with-param name="title" select="document($filesim)//similarities/files/file[@id=$file6]/@title"/>
            			</xsl:call-template>
    	 			
                 </xsl:if>
@@ -110,6 +116,7 @@
       <xsl:template name="onesim">
 
                                     <xsl:param name="file" select="''"/>
+                                    <xsl:param name="xml" select="''"/>
                                     <xsl:param name="lang" select="''"/>
                                     <xsl:param name="title" select="''"/>
 								<tr>
@@ -117,8 +124,8 @@
                                 <table>
                                 
                                 <table border="1" cellpadding="5" cellspacing="0" bordercolor="#000000">
-									<tr><th align="left" style="font-size:18px"><i> <xsl:value-of select="document($filesim)//similarities/files/file[@xml=$file]/@title"/> story</i></th></tr>
-									<!--<tr><th align="left" style="font-size:13px">Language: <xsl:value-of select="document($filesim)//similarities/files/file[@xml=$file]/@lang"/>  </th></tr>-->
+									<tr><th align="left" style="font-size:18px"><i> <xsl:value-of select="$title"/></i></th></tr>
+									<!--<tr><th align="left" style="font-size:13px">Language: <xsl:value-of select="document($filesim)//similarities/files/file[@id=$file]/@lang"/>  </th></tr>-->
                                 </table>
 								<!--<xsl:call-template name="player-audio_wav_file1">
 									<xsl:with-param name="f1_sound" select="$f1_sound"/>
@@ -126,7 +133,7 @@
 								</xsl:call-template>-->
 								<!--PARTIE TRAITEMENT ET AFFICHAGE FILE1-->
 								    
-							<xsl:for-each select="document($file)//TEXT/S">
+							<xsl:for-each select="document($xml)//TEXT/S">
 								<xsl:variable name="num_s" select="position()" />
 								<xsl:variable name="id_s" select="@id" />
 								
