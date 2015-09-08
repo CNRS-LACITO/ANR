@@ -3,7 +3,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
     <xsl:param name="color" select="''"/>
-    <xsl:param name="similarity" select="''"/>
+    <xsl:param name="nsim" select="''"/>
 	
 	<xsl:param name="mot" select="''"/>
     
@@ -38,9 +38,9 @@
 				
 				<table width="100%" border="0" cellpadding="5" cellspacing="0" bordercolor="#000000">
 					<tbody>
-						<th align="left" bgcolor="#CCCCCC"><p><b>Similarity <xsl:value-of select="$similarity"/> </b><br/></p></th>
+						<th align="left" bgcolor="#CCCCCC"><p><b>Similarity <xsl:value-of select="$nsim"/> </b><br/></p></th>
                  
-                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file1]">
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$nsim]/file[@id=$file1]">
                 
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file1"/>
@@ -50,7 +50,7 @@
            			</xsl:call-template>
    	 			
                 </xsl:if>
-                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file2]">
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$nsim]/file[@id=$file2]">
                
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file2"/>
@@ -60,7 +60,7 @@
            			</xsl:call-template>
    	 			
                 </xsl:if>
-                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file3]">
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$nsim]/file[@id=$file3]">
                 
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file3"/>
@@ -70,7 +70,7 @@
            			</xsl:call-template>
    	 			
                 </xsl:if>
-                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file4]">
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$nsim]/file[@id=$file4]">
                
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file4"/>
@@ -80,7 +80,7 @@
            			</xsl:call-template>
    	 		
                 </xsl:if>
-                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file5]">
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$nsim]/file[@id=$file5]">
                
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file5"/>
@@ -90,7 +90,7 @@
            			</xsl:call-template>
    	 		
                 </xsl:if>
-                <xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file6]">
+                <xsl:if test="document($filesim)//similarities/similarity[@id=$nsim]/file[@id=$file6]">
                
            			 <xsl:call-template name="onesim">
                    		<xsl:with-param name="file" select="$file6"/>
@@ -139,8 +139,8 @@
 								
 								
 								
-									<xsl:if test="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file]/sentence[@id=$id_s]">
-										<xsl:variable name="num_sim" select="document($filesim)//similarities/similarity[@id=$similarity]/file[@id=$file]/sentence"/>	
+									<xsl:if test="document($filesim)//similarities/similarity[@id=$nsim]/file[@id=$file]/sentence[@id=$id_s]">
+										<xsl:variable name="num_sim" select="document($filesim)//similarities/similarity[@id=$nsim]/file[@id=$file]/sentence"/>	
 										<tr>
 										<td class="segmentContent" width="600px" bgcolor="{$color}">
 											<br/>
@@ -498,6 +498,7 @@
 			<xsl:text>var STARTS = new Array(</xsl:text>
 			<xsl:for-each select="document($f2_xml)//TEXT/S/AUDIO">
 	   			"<xsl:value-of select="@start"/>"
+
 	   			<xsl:if test="position()!=last()"><xsl:text>,</xsl:text></xsl:if>
 			</xsl:for-each>
 			<xsl:text>);</xsl:text>

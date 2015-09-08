@@ -452,13 +452,11 @@ or ((document($filesim)//similarities/similarity[@id=$num_sim]/file[6][@id!=$fil
 <!--<input type='hidden' name='who' value='".$who."'/>-->
 
 
-
 <a	href="ViewOneSimilarity.php?file1={$file1}&amp;file2={$file2}&amp;file3={$file3}&amp;file4={$file4}&amp;file5={$file5}&amp;file6={$file6}&amp;filesim={$filesim}&amp;similarity={$similarity}&amp;color={$color}"
 					target="_blank"
 					onClick="window.open(this.href,'popup','width=900,height=600,scrollbars=yes,resizable=yes',1);return false">
 						<p><b>Similarity <xsl:value-of select="$num_sim"/></b><br/></p>
 					</a>
-
 
 Sentence <xsl:value-of select="$num_s"/><br/>
 <!-- <a href="javascript:boutonStop()">
